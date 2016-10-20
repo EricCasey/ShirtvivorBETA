@@ -11,12 +11,6 @@ import '../public/styles/products_container.css';
       return (
 
 <div className='productList'>
-{/* {
-  this.props.products.map( (products, index) => {
-    return (this.props.products[index])
-  })
-} */}
-
 
 {
   this.props.products.map( (product, index) => {
