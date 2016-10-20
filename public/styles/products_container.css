@@ -1,0 +1,19 @@
+
+
+.productList {
+  display: flex;
+  flex-direction: row;
+  margin: 90px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-item {
+  margin: 0px 20px;
+  width: 23%;
+  justify-content: center;
+  text-align: center;
+}
+.product-item img {
+  height: 170px;
+}

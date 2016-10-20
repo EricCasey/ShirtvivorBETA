@@ -1,0 +1,33 @@
+@font-face {
+
+}
+
+.App {
+
+}
+
+
+.App-intro {
+  font-size: large;
+}
+.nav-bar-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  text-align: center;
+}
+
+.nav-title {
+  /*margin: 0 auto;*/
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  /*color: #FFFFFF;*/
+  flex: 1;
+}
+#control-button {
+  /*flex: 4;*/
+}
