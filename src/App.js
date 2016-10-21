@@ -39,6 +39,18 @@ class App extends Component {
           description: 'wear this everyday, don\'t ever take it off',
           price: '$999',
           image : 'https://www.blacksocks.com/files/styles/blk_product_large/public/T-Shirt-Suzette-weiss_0.png?itok=d1sWT_ZC'
+        },
+        {
+          name: 'tshirt 5',
+          description: 'wear this everyday, don\'t ever take it off',
+          price: '$999',
+          image : 'https://www.blacksocks.com/files/styles/blk_product_large/public/T-Shirt-Suzette-weiss_0.png?itok=d1sWT_ZC'
+        },
+         {
+          name: 'tshirt 6',
+          description: 'wear this everyday, don\'t ever take it off',
+          price: '$999',
+          image : 'https://www.blacksocks.com/files/styles/blk_product_large/public/T-Shirt-Suzette-weiss_0.png?itok=d1sWT_ZC'
         }
       ],
       designers : [
