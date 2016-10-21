@@ -5,13 +5,14 @@
   flex-direction: row;
   margin: 90px;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: flex-start;
 }
 
 .product-item {
   margin: 0px 20px;
   width: 23%;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 .product-item img {

@@ -12,11 +12,15 @@ import FlatButton from 'material-ui/FlatButton';
     render() {
       return (
         <div className="nav-bar-container">
-
           <div className="nav-title">
             SCREAMING_SNAKE_CASE
           </div>
-          <div id="control-button"><FlatButton label="Login" /></div>
+          <div id="control-button">
+            <FlatButton
+              label="Login"
+              style={{minWidth: "20%"}}
+            />
+          </div>
 
         </div>
       )

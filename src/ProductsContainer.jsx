@@ -16,7 +16,7 @@ import '../public/styles/products_container.css';
   this.props.products.map( (product, index) => {
   return <div key={index} className="product-item">
     <p>Item: {product.name} </p>
-    <img src={product.image}  alt={product.name}/>
+    <div><img src={product.image}  alt={product.name}/></div>
     <p>Description: {product.description}</p>
     <p>Price: {product.price}</p>
   </div>

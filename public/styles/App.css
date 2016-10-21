@@ -25,9 +25,12 @@
   /*margin: 0 auto;*/
   font-family: 'Montserrat', sans-serif;
   font-size: 40px;
+  width: 100;
   /*color: #FFFFFF;*/
   flex: 1;
+  margin-left: 10%;
 }
+
 #control-button {
-  /*flex: 4;*/
+  min-width: 10%;
 }
