@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../public/styles/products_container.css';
+import './products_container.css';
 
   class ProductsContainer extends Component {
     constructor(props) {

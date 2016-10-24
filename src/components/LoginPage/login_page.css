@@ -1,0 +1,77 @@
+.login-page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Istok Web', sans-serif;
+  padding: 0 60px;
+  margin-top: 65px;
+  width: 25%;
+  align-items: center;
+}
+
+.login-container.register {
+  border-left: 1px solid #CCC;
+}
+
+.login-container-title {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  width: 100%;
+}
+
+.login-form input {
+  border: 1px solid #000000;
+  outline: none;
+  height: 20px;
+  min-height: 25px;
+  padding: 0 6px;
+  margin-bottom: 7px;
+  font-size: 12px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  width: 100%;
+}
+
+.register-form input {
+  border: 1px solid #000000;
+  outline: none;
+  height: 20px;
+  min-height: 25px;
+  padding: 0 6px;
+  margin-bottom: 7px;
+  font-size: 12px;
+}
+
+.login-form-button {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 11px;
+  height: 30px;
+  width: 125px;
+  text-align: center;
+}
+
+.login-form-button:hover {
+  cursor: pointer;
+}
+
+

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import '../public/styles/App.css';
-import NavBar from './NavBar.jsx'
-// import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import './App.css';
 // import VideoBG from './VideoBG.jsx';
-import ProductsContainer from './ProductsContainer.jsx';
-import DesignersContainer from './DesignersContainer.jsx';
-// import NavBar from './MyAwesomeReactComponent';
+import ProductsContainer from '../ProductsContainer/ProductsContainer.jsx';
+import DesignersContainer from '../DesignersContainer/DesignersContainer.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -65,10 +61,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <MuiThemeProvider>
-        <NavBar/>
-      </MuiThemeProvider>
-      {/* <VideoBG/> */}
+
       <DesignersContainer
         designers={ this.state.designers }
       />

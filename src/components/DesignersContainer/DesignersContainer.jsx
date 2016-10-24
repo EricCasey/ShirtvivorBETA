@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../public/styles/designers_container.css';
+import './designers_container.css';
 
 class DesignersContainer extends Component {
 
@@ -7,7 +7,7 @@ class DesignersContainer extends Component {
         super(props)
         this.state = { pools : "closed" }
     };
-    
+
     render() {
         return (
             <div className='designer-list'>

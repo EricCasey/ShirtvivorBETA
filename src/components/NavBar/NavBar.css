@@ -1,0 +1,72 @@
+.nav-bar-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  text-align: center;
+}
+
+.nav-title {
+  /*margin: 0 auto;*/
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  width: 100;
+  /*color: #FFFFFF;*/
+  flex: 1;
+  margin-left: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.title-text {
+  cursor: pointer;
+  width: 30%;
+}
+
+.shopping-bag-button {
+  min-width: 10%;
+  font-family: 'Istok Web', sans-serif;
+  margin-right: 45px;
+}
+
+.login-button {
+  margin-right: 45px;
+  font-family: 'Istok Web', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  cursor: default;
+}
+
+.designers-button {
+  min-width: 10%;
+  font-family: 'Istok Web', sans-serif;
+  margin-left: 45px;
+}
+
+
+.shopping-bag-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.designers-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+};
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../public/styles/videobg.css';
+import './videobg.css';
 
   class VideoBG extends Component {
 
