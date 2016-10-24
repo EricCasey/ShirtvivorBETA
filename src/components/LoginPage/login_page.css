@@ -9,8 +9,8 @@
   font-family: 'Istok Web', sans-serif;
   padding: 0 60px;
   margin-top: 65px;
-  width: 25%;
   align-items: center;
+  width: 30%;
 }
 
 .login-container.register {
@@ -73,5 +73,6 @@
 .login-form-button:hover {
   cursor: pointer;
 }
-
-
+.create-user-form, .login-user-form {
+ width: 100%;
+}

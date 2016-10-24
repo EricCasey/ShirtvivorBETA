@@ -19,6 +19,24 @@ const usersRoutes = require("./routes/users");
 const productsRoutes = require("./routes/products");
 const lineitemsRoutes = require("./routes/lineitems");
 const ordersRoutes = require("./routes/orders");
+const registerRoutes = require("./routes/register");
+const loginRoutes = require("./routes/login");
+const designersRoutes = require("./routes/designers");
+
+// User authentication zone
+const session = require("express-session");
+const passport = require("passport");
+// const LocalStrategy = require("passport-local").Strategy;
+
+
+app.use(session({
+  secret: 'mysecretkey',
+  resave: false,
+  saveUninitiated: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -45,15 +63,33 @@ app.use(function(req, res, next) {
   next();
 });
 
+(function (routeConfig) {
 
+  'use strict';
+
+  routeConfig.init = function (app) {
+
+    // *** routes *** //
+    const routes = require('../routes/index');
+    const authRoutes = require('../routes/auth');
+
+    // *** register routes *** //
+    app.use('/', routes);
+    app.use('/auth', authRoutes);
+
+  };
+
+})(module.exports);
 
 // Home page
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
+// app.use("/api/users", usersRoutes(knex));
+app.post("/api/register", registerRoutes(knex));
+app.post("/api/login", loginRoutes(knex));
 
 // products endpoint
 app.use("/api/products", productsRoutes(knex));
@@ -63,6 +99,14 @@ app.use("/api/orders", ordersRoutes(knex));
 
 // line-items endpoint
 app.use("/api/lineitems", lineitemsRoutes(knex));
+
+// designers endpoint
+app.use("/api/designers", designersRoutes(knex));
+
+
+
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

@@ -6,6 +6,8 @@ import Root from './components/Root/Root.jsx'
 
 const rootEl = document.getElementById('root')
 
+
+
 // ReactDOM.render(
 //   <App />,
 //   document.getElementById('root')

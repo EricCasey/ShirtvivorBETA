@@ -9,36 +9,47 @@ class LoginPage extends Component {
     }
   };
 
+
+
+
   render() {
     return (
       <div className="login-page-container">
         <div className="login-container login">
-          <div className="login-container-title">Login</div>
-          <div className="login-form">
-            <label>Email address</label>
-            <input type="email" name="email" />
-            <label>Password</label>
-            <input type="password" name="password" />
-          </div>
-          <div className="login-form-button">LOGIN</div>
-        </div>
+          <form className="login-user-form" id="login-user-form" action="http://localhost:8080/api/login" method="POST" role="form">
+            <div className="login-container-title">Login</div>
+            <div className="login-form">
+              <label>Email</label>
+              <input type="email" name="email" />
+              <label>Password</label>
+              <input type="password" name="password" />
+            </div>
+            <button onClick="" className="login-form-button">LOGIN
+            </button>
+          </form>
 
-        <div className="login-container register">
-          <div className="login-container-title">Create an account</div>
-          <div className="register-form">
-            <label>First name</label>
-            <input type="text" name="firstname" />
-            <label>Last name</label>
-            <input type="text" name="lastname" />
-            <label>Email</label>
-            <input type="email" name="email" />
-            <label>Password</label>
-            <input type="password" name="password" />
-            <label>Confirm password</label>
-            <input type="password" name="password" />
-          </div>
-          <div className="login-form-button">CREATE</div>
         </div>
+        <form className='create-user-form' id="create-user-form"
+        action="http://localhost:8080/auth/register" method="POST" role="form">
+          <div className="login-container register">
+            <div className="login-container-title">Create an account</div>
+            <div className="register-form">
+              <label>First name</label>
+              <input type="text" name="firstname" />
+              <label>Last name</label>
+              <input type="text" name="lastname" />
+              <label>Username</label>
+              <input type="text" name="username" />
+              <label>Email</label>
+              <input type="email" name="email" />
+              <label>Password</label>
+              <input type="password" name="password" />
+              <label>Confirm password</label>
+              <input type="password" name="password" />
+            </div>
+            <button onClick="" className="login-form-button">CREATE</button>
+          </div>
+        </form>
       </div>
     )
   }

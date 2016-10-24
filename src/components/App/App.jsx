@@ -72,7 +72,7 @@ class App extends Component {
         designers={ this.state.designers }
       />
       <ProductsContainer
-        products={ this.state.products }
+
       />
 
       </div>

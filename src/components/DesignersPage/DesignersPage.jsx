@@ -1,66 +1,31 @@
 import React, {Component} from 'react';
 import DesignersSideBar from '../DesignersSideBar/DesignersSideBar.jsx';
+import DesignersProductsContainer from '../DesignersProductsContainer/DesignersProductsContainer.jsx';
 import './designers_page.css'
 
 class DesignersPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      designers : [
-        {
-          name: 'Acne Studios'
-        },
-        {
-          name: 'APC'
-        },
-        {
-          name: 'Balenciaga'
-        },
-        {
-          name: 'Chanel'
-        },
-        {
-          name: 'Common Projects'
-        },
-        {
-          name: 'Dior'
-        },
-        {
-          name: 'Fendi'
-        },
-        {
-          name: 'Givenchy'
-        },
-        {
-          name: 'Gucci'
-        },
-        {
-          name: 'Helmut Lang'
-        },
-        {
-          name: 'Juun J'
-        },
-        {
-          name: 'Maison Margiela'
-        },
-        {
-          name: 'Marc Jacobs'
-        },
-        {
-          name: 'Paul Smith'
-        },
-        {
-          name: 'Saint Laurent'
-        },
-        {
-          name: 'Versace'
-        },
-        {
-          name: 'Yohji Yamamoto'
-        }
-      ]
-    }
+      current_designer: 1,
+      }
   };
+
+
+  updateDesigner = (designerTarget) => {
+
+    this.setState({
+      ...this.state,
+      current_designer: {
+        ...this.state.current_designer,
+        ...designerTarget
+      }
+    });
+
+
+  }
+
+
 
   render() {
     return (
@@ -68,6 +33,10 @@ class DesignersPage extends Component {
         <DesignersSideBar
          designers={ this.state.designers }
         />
+        <DesignersProductsContainer
+        products={ this.state.products }
+        current_designer={this.state.current_designer}
+        updateDesigner={ this.updateDesigner } />
       </div>
     )
   }
