@@ -61,6 +61,12 @@ class App extends Component {
     }
   };
 
+  // componentDidMount() {
+  //     fetch(`http://localhost:8080/api/products`)
+  //         .then( result => {
+  //             this.setState({ products : result.json() });
+  //         });
+  // }
 
   render() {
     return (
