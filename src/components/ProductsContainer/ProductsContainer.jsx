@@ -7,6 +7,21 @@ import './products_container.css';
       this.state = {   }
     };
 
+    componentDidMount() {
+      var invocation = new XMLHttpRequest();
+      if (invocation) {
+        fetch(`http://localhost:8080/api/products`)
+            .then( result => {
+              var blah = result.json()
+              console.log(blah);
+              console.log(this.state)
+                this.setState({ products : result.json() });
+
+            }).then(console.log(this.state.products));
+    };
+  }
+
+
     render() {
       return (
 
@@ -19,7 +34,9 @@ import './products_container.css';
     <div><img src={product.image}  alt={product.name}/></div>
     <p>Description: {product.description}</p>
     <p>Price: {product.price}</p>
+    <p>{this.state.products}</p>
   </div>
+
 })}
 
 

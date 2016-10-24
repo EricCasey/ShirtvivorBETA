@@ -39,6 +39,14 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
+
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
@@ -55,7 +63,6 @@ app.use("/api/orders", ordersRoutes(knex));
 
 // line-items endpoint
 app.use("/api/lineitems", lineitemsRoutes(knex));
-
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
