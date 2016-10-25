@@ -29,7 +29,10 @@ class LoginPage extends Component {
         credentials
       )
     }).then(response => {
-      debugger
+      return response.json()
+    }).then( json => {
+      // do work here
+      window.user_token = json.token
     })
   }
 
