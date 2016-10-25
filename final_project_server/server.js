@@ -22,12 +22,12 @@ const ordersRoutes = require("./routes/orders");
 const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login");
 const designersRoutes = require("./routes/designers");
+const designerProductsRoutes = require("./routes/designerProducts");
 
 // User authentication zone
 const session = require("express-session");
 const passport = require("passport");
 // const LocalStrategy = require("passport-local").Strategy;
-
 
 app.use(session({
   secret: 'mysecretkey',
@@ -37,7 +37,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -87,7 +86,7 @@ app.use(function(req, res, next) {
 // });
 
 // Mount all resource routes
-// app.use("/api/users", usersRoutes(knex));
+app.use("/api/users", usersRoutes(knex));
 app.post("/api/register", registerRoutes(knex));
 app.post("/api/login", loginRoutes(knex));
 
@@ -103,9 +102,8 @@ app.use("/api/lineitems", lineitemsRoutes(knex));
 // designers endpoint
 app.use("/api/designers", designersRoutes(knex));
 
-
-
-
+// used on the designers page for switching designers
+app.get('/api/products/:id', designerProductsRoutes(knex));
 
 
 app.listen(PORT, () => {
