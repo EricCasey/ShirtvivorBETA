@@ -6,6 +6,7 @@ const PORT        = process.env.PORT || 8080;
 const ENV         = process.env.ENV || "development";
 const express     = require("express");
 const bodyParser  = require("body-parser");
+const cookieParser = require("cookie-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
 
@@ -25,6 +26,7 @@ const designersRoutes = require("./routes/designers");
 const designerProductsRoutes = require("./routes/designerProducts");
 
 // User authentication zone
+
 const session = require("express-session");
 const passport = require("passport");
 // const LocalStrategy = require("passport-local").Strategy;
@@ -37,6 +39,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser())
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -104,6 +107,8 @@ app.use("/api/designers", designersRoutes(knex));
 
 // used on the designers page for switching designers
 app.get('/api/products/:id', designerProductsRoutes(knex));
+
+//used to login current user with credentials
 
 
 app.listen(PORT, () => {

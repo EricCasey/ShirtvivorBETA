@@ -3,14 +3,22 @@
 const express = require('express');
 const router  = express.Router();
 var chance = require('chance').Chance();
+const bodyParser = require("body-parser")
+
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json())
 
 module.exports = (knex) => {
 
   router.post("/api/login", (req, res) => {
-    var email = req.body.email;
-    var password = req.body.password;
+    var email = req.body.loginEmail;
+    var password = req.body.loginPassword;
     var currUser = null;
     var newToken = null;
+
+    console.log(email)
+    console.log(password)
+    console.log(req.body)
 
     knex
       .select("*")
@@ -32,12 +40,15 @@ module.exports = (knex) => {
                 .returning('token')
                 .insert({user_id: currUser.id, token: newToken})
                 .then((results)=> {
+                  // res.cookie("token", newToken)
                   res.json(results);
+                  console.log(results);
+
                 });
               }
             })
         }
-        res.json(results);
+        // res.json(results);
     });
   });
 

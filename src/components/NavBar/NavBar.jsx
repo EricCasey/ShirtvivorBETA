@@ -7,7 +7,7 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedin : false,
+
     }
   };
 
@@ -34,7 +34,7 @@ class NavBar extends Component {
           </Link>
           <Link to="/shopping-bag" className="shopping-bag-link">
             <div className="shopping-bag-button">
-              SHOPPING BAG
+              SHOPPING BAG(0)
             </div>
           </Link>
         </div>
