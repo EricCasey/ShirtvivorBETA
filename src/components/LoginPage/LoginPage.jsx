@@ -5,51 +5,71 @@ class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedin : false,
+      loginEmail: "",
+      loginPassword: "",
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
     }
   };
 
+  handleOnChange = (value, name) => {
+    this.setState({
+      ...this.state,
+      [name]: value
+    })
+  };
 
-
+  generateInputs = (inputVal) => {
+    return inputVal.map(input => {
+      return(
+        <div className="login-form">
+          <label>{input.label}</label>
+          <input
+            value={this.state[input.name]}
+            type={input.type}
+            name={input.name}
+            onChange={(e) => {this.handleOnChange(e.target.value, e.target.name)}} />
+          </div>
+      )
+    })
+  };
 
   render() {
+
+    let loginValues = [
+      {label: "Email", type: "email", name: "loginEmail"},
+      {label: "Password", type: "password", name: "loginPassword"}
+    ]
+    let registerValues = [
+      {label: "First Name", type: "text", name: "firstName"},
+      {label: "Last Name", type: "text", name: "lastName"},
+      {label: "Username", type: "text", name: "username"},
+      {label: "Email", type: "email", name: "email"},
+      {label: "Password", type: "password", name: "password"},
+      {label: "Confirm password", type: "password", name: "confirmPassword"},
+    ]
+
     return (
       <div className="login-page-container">
         <div className="login-container login">
-          <form className="login-user-form" id="login-user-form" action="http://localhost:8080/api/login" method="POST" role="form">
             <div className="login-container-title">Login</div>
             <div className="login-form">
-              <label>Email</label>
-              <input type="email" name="email" />
-              <label>Password</label>
-              <input type="password" name="password" />
+              { this.generateInputs(loginValues) }
             </div>
-            <button onClick="" className="login-form-button">LOGIN
-            </button>
-          </form>
+            <div className="login-form-button">LOGIN</div>
 
         </div>
-        <form className='create-user-form' id="create-user-form"
-        action="http://localhost:8080/auth/register" method="POST" role="form">
           <div className="login-container register">
             <div className="login-container-title">Create an account</div>
             <div className="register-form">
-              <label>First name</label>
-              <input type="text" name="firstname" />
-              <label>Last name</label>
-              <input type="text" name="lastname" />
-              <label>Username</label>
-              <input type="text" name="username" />
-              <label>Email</label>
-              <input type="email" name="email" />
-              <label>Password</label>
-              <input type="password" name="password" />
-              <label>Confirm password</label>
-              <input type="password" name="password" />
+              { this.generateInputs(registerValues) }
             </div>
-            <button onClick="" className="login-form-button">CREATE</button>
+            <div className="login-form-button">CREATE</div>
           </div>
-        </form>
       </div>
     )
   }
