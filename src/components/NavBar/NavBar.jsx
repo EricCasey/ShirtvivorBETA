@@ -32,6 +32,9 @@ class NavBar extends Component {
               LOGIN
             </div>
           </Link>
+          <div className="logout-button">
+            LOGOUT
+          </div>
           <Link to="/shopping-bag" className="shopping-bag-link">
             <div className="shopping-bag-button">
               SHOPPING BAG(0)

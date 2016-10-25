@@ -31,7 +31,7 @@ class LoginPage extends Component {
     }).then(response => {
       return response.json()
     }).then( json => {
-      // do work here
+      // do work here-m
       window.user_token = json.token
     })
   }

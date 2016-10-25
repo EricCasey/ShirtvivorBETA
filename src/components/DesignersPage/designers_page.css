@@ -2,5 +2,7 @@
 }
 .productList {
 }
+
 .sb {
+  display: flex;
 }
