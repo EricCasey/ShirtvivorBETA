@@ -37,7 +37,7 @@ class NavBar extends Component {
           </div>
           <Link to="/shopping-bag" className="shopping-bag-link">
             <div className="shopping-bag-button">
-              SHOPPING BAG(0)
+              SHOPPING BAG (0)
             </div>
           </Link>
         </div>
