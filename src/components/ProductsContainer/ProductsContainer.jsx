@@ -36,7 +36,11 @@ import './products_container.css';
                     <img src={product.image}
                     alt={product.name}
                     className="ink" />
-                  <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={product.name}/>
+                  </div>
+                  <img
+                    //  src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'
+src='http://i.imgur.com/WYdYVde.png'
+                   alt={product.name}/>
                 </div>
                 <p>Description: {product.description}</p>
                 <p>Price: {product.price_cents}</p>

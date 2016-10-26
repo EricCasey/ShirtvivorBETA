@@ -16,9 +16,9 @@ exports.seed = function(knex, Promise) {
         knex('users').insert({
           id: 2,
           first_name: 'Eric',
-          last_name: 'Tehbest',
-          username: 'Balenciaga',
-          email: 'erictehbest@gmail.com',
+          last_name: 'Casey',
+          username: 'Casey_works',
+          email: 'ericcasey509@gmail.com',
           password: '123',
           is_designer: true,
           is_admin: true
@@ -103,7 +103,7 @@ knex('users').insert({
   is_designer: true,
   is_admin: true
 })
-    
+
       ]);
     });
 };

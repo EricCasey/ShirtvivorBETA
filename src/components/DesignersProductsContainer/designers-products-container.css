@@ -16,7 +16,6 @@
   font-family: 'Istok Web', sans-serif;
   align-items: center;
   justify-content: center;
-
 }
 
 .product-container-item p {
@@ -36,11 +35,9 @@
   align-items: center;
   text-align: center;
 }
-
 .product-cart-button:hover {
   cursor: pointer;
 }
-
 .shirt-container {
   display: flex;
   position: relative;
@@ -53,7 +50,6 @@
 .product-container-item img {
   height: 170px;
 }
-
 
 .ink {
   opacity: 0.7;
