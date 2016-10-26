@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'survivor';
+  src : url('survivant.ttf');
+}
+
 .nav-bar-container {
   display: flex;
   flex-direction: row;
@@ -11,7 +16,7 @@
 
 .nav-title {
   /*margin: 0 auto;*/
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'survivor';
   font-size: 40px;
   width: 100;
   /*color: #FFFFFF;*/
@@ -76,9 +81,3 @@ a {
   text-decoration: underline;
   cursor: pointer;
 };
-
-
-
-
-
-
