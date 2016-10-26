@@ -12,7 +12,11 @@ class DesignersProductsContainer extends Component {
 
   componentDidMount() {
 
-}
+  }
+
+  handleOnClick = (value) => {
+    this.props.updateCart(value);
+  }
 
   render() {
     return (
@@ -28,7 +32,11 @@ class DesignersProductsContainer extends Component {
                 <p><b>{product.name}</b></p>
                 <p>{product.description}</p>
                 <p>${product.price_cents}</p>
-                <div className="product-cart-button">ADD TO BAG</div>
+                <div
+                  className="product-cart-button"
+                  onClick={this.handleOnClick.bind(this, product)}>
+                    ADD TO BAG
+                </div>
               </div>
 
             )

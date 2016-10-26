@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import './App.css';
 // import VideoBG from './VideoBG.jsx';
 import ProductsContainer from '../ProductsContainer/ProductsContainer.jsx';
@@ -57,12 +58,11 @@ class App extends Component {
     }
   };
 
-  // componentDidMount() {
-  //     fetch(`http://localhost:8080/api/products`)
-  //         .then( result => {
-  //             this.setState({ products : result.json() });
-  //         });
-  // }
+ componentDidMount() {
+    if (!localStorage.getItem('user')) {
+      browserHistory.push('/login')
+    }
+  }
 
   render() {
     return (

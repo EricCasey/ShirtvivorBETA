@@ -7,7 +7,7 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      cartList: []
     }
   };
 
@@ -31,6 +31,7 @@ class NavBar extends Component {
     }).then(response => {
       if (response.status === 200)  {
         localStorage.removeItem('user');
+        this.clearState();
         browserHistory.push(`/login`);
       }
     })
@@ -56,6 +57,23 @@ class NavBar extends Component {
   }
 
 
+  updateCart = (item) => {
+    debugger;
+    let cartCopy = this.state.cartList.slice(0);
+    cartCopy.push(item)
+    this.setState({
+      ...this.state,
+      cartList: cartCopy
+    })
+  }
+
+  clearState = () => {
+    this.setState({
+      ...this.state,
+      cartList: []
+    })
+  }
+
 
 
   render() {
@@ -77,11 +95,13 @@ class NavBar extends Component {
           { this.checkForUser() }
           <Link to="/shopping-bag" className="shopping-bag-link">
             <div className="shopping-bag-button">
-              SHOPPING BAG (0)
+              SHOPPING BAG ({this.state.cartList.length})
             </div>
           </Link>
         </div>
-        { this.props.children }
+        {React.Children.map(this.props.children, (child) => {
+          return React.cloneElement(child, { updateCart: this.updateCart, cartList: this.state.cartList })
+        })}
       </div>
     )
   }

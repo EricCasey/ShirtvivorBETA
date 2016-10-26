@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './shopping_bag_page.css'
+import { browserHistory } from 'react-router';
+import './shopping_bag_page.css';
 
 class ShoppingBagPage extends Component {
   constructor(props) {
@@ -9,11 +10,27 @@ class ShoppingBagPage extends Component {
     }
   };
 
+
+  componentDidMount() {
+    if (!localStorage.getItem('user')) {
+      browserHistory.push('/login')
+    }
+  }
+
   render() {
     return (
       <div>
         <div>
-          SHOPPINGBAG PAGE?
+        {
+          this.props.cartList.map( (product, index)  => {
+            return (
+              <div className="cart-items-container" key={index}>
+                <p><b>{product.name}</b></p>
+                <p>${product.price_cents}</p>
+              </div>
+            )
+          })
+        }
         </div>
       </div>
     )

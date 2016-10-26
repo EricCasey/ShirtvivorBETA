@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import { browserHistory } from 'react-router';
 import DesignersSideBar from '../DesignersSideBar/DesignersSideBar.jsx';
 import DesignersProductsContainer from '../DesignersProductsContainer/DesignersProductsContainer.jsx';
-import './designers_page.css'
+import './designers_page.css';
 
 class DesignersPage extends Component {
     constructor(props) {
@@ -13,6 +14,11 @@ class DesignersPage extends Component {
     };
 
     componentDidMount() {
+
+        if (!localStorage.getItem('user')) {
+          browserHistory.push('/login')
+        }
+
         if (this.state.selectedDesigner === '') {
             var invocation = new XMLHttpRequest();
             if (invocation) {
@@ -66,9 +72,15 @@ class DesignersPage extends Component {
     render() {
         return (
             <div className="sb">
-                <DesignersSideBar designers={this.state.designers} onDesignerClick={this.handleDesignerClick}/>
-                <DesignersProductsContainer products={this.state.products} current_designer={this.state.current_designer}
-            />
+                <DesignersSideBar
+                    designers={this.state.designers}
+                    onDesignerClick={this.handleDesignerClick}
+                />
+                <DesignersProductsContainer
+                    products={this.state.products}
+                    current_designer={this.state.current_designer}
+                    updateCart={this.props.updateCart}
+                />
             </div>
         )
     }

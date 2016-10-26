@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { browserHistory } from 'react-router'
-import './login_page.css'
+import { browserHistory } from 'react-router';
+import './login_page.css';
 
 class LoginPage extends Component {
   constructor(props) {
