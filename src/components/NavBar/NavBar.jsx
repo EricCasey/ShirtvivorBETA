@@ -78,6 +78,15 @@ class NavBar extends Component {
     })
   }
 
+
+  getSubtotal = (cart) => {
+      let total = 0;
+      this.state.cartList.forEach((product) => {
+          total += product.price_cents;
+      })
+      return total;
+  }
+
   clearState = () => {
     this.setState({
       ...this.state,
@@ -85,15 +94,13 @@ class NavBar extends Component {
     })
   }
 
-
-
   render() {
     return (
       <div>
         <div className="nav-bar-container">
           <Link to="/designers" className="designers-link">
             <div className="designers-button">
-              DESIGNERS
+              SHOP
             </div>
           </Link>
           { this.loadProfile() }
@@ -112,7 +119,7 @@ class NavBar extends Component {
           </Link>
         </div>
         {React.Children.map(this.props.children, (child) => {
-          return React.cloneElement(child, { updateCart: this.updateCart, cartList: this.state.cartList })
+          return React.cloneElement(child, { updateCart: this.updateCart, cartList: this.state.cartList, getSubtotal: this.getSubtotal })
         })}
       </div>
     )

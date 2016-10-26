@@ -47,6 +47,7 @@ h2 {
   align-items: center;
   text-align: center;
   margin: 0 auto 5px auto;
+  border: none;
 }
 #checkout-card p{
   margin: 5px;
