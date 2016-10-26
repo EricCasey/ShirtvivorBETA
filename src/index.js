@@ -4,9 +4,7 @@ import routes from './routes/index.js';
 // import { AppContainer as HotLoaderContainer } from 'react-hot-loader';
 import Root from './components/Root/Root.jsx'
 
-const rootEl = document.getElementById('root')
-
-
+const rootEl = document.getElementById('root');
 
 // ReactDOM.render(
 //   <App />,
