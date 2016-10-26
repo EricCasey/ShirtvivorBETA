@@ -5,7 +5,7 @@ class DesignersContainer extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { pools : "closed" }
+        this.state = {  }
     };
 
     render() {

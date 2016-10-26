@@ -1,0 +1,56 @@
+.cart-items-container {
+  font-family: 'Istok Web', sans-serif;
+}
+h2 {
+  margin-left: 45px;
+  margin-top: 0;
+  border-bottom: solid #C8C9C9 1px;
+}
+#line-items {
+  margin-top: 60px;
+}
+.cart-item {
+  border-bottom: solid #C8C9C9 1px;
+  width: 50%;
+  height: 120px;
+  padding: 8px;
+  margin: 1% 0% 1% 45px;
+}
+.cart-item img {
+  width: 100px;
+  float: right;
+}
+/*.cart-item p {
+  margin: 5px 0;
+}*/
+.operator {
+  float:right;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+#checkout-card {
+  border: solid 2px black;
+  border-radius: 1px;
+  width: 25%;
+  float: right;
+  margin-right: 60px;
+  margin-top: 60px;
+}
+.checkout-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  height: 30px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto 5px auto;
+}
+#checkout-card p{
+  margin: 5px;
+}
+.checkout-button:hover {
+  cursor: pointer;
+}

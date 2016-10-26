@@ -37,7 +37,6 @@ class NavBar extends Component {
     })
   }
 
-
   checkForUser = () => {
     if (!localStorage.getItem('user')) {
       return (
@@ -58,7 +57,6 @@ class NavBar extends Component {
 
 
   updateCart = (item) => {
-    debugger;
     let cartCopy = this.state.cartList.slice(0);
     cartCopy.push(item)
     this.setState({
