@@ -32,9 +32,13 @@ import './products_container.css';
             return (
               <div className="product-item" key={index}>
                 <p>Item: {product.name} </p>
-                <div>
-                  {/* <img src={product.image}  alt={product.name}/> */}
-                  <img src='https://www.blacksocks.com/files/styles/blk_product_large/public/T-Shirt-Suzette-weiss_0.png?itok=d1sWT_ZC'  alt={product.name}/>
+                <div className="shirt-container">
+                  <div className="design-area">
+                    <img src={product.image}
+                    alt={product.name}
+                    className="ink" />
+                  </div>
+                  <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={product.name}/>
                 </div>
                 <p>Description: {product.description}</p>
                 <p>Price: {product.price_cents}</p>

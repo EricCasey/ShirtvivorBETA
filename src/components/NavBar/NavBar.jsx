@@ -23,7 +23,7 @@ class NavBar extends Component {
           <div className="nav-title">
             <Link to="/" className="home-link">
               <div className="title-text">
-                Shirtify
+                Shirtvivor
               </div>
             </Link>
           </div>

@@ -24,11 +24,6 @@
   font-size: 13px;
 }
 
-.product-container-item img {
-  height: 170px;
-}
-
-
 .product-cart-button {
   background-color: #000000;
   color: #ffffff;
@@ -43,4 +38,27 @@
 
 .product-cart-button:hover {
   cursor: pointer;
+}
+
+.shirt-container {
+  height: 171px;
+  width: 127px;
+}
+.product-container-item img {
+  height: 170px;
+}
+.design-area {
+  /*border: 1px dotted black;*/
+  position: absolute;
+  margin: 24px 32px;
+  width: 90px;
+  height: 134px;
+  overflow: hidden;
+}
+.ink {
+  opacity: 0.7;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 90px;
+  max-height: 134px;
 }
