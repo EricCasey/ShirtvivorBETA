@@ -57,6 +57,19 @@ class NavBar extends Component {
   }
 
 
+  loadProfile = () => {
+    if (localStorage.getItem('user')) {
+      return (
+        <Link to="/profile">
+          <div className="profile-button">
+            PROFILE
+          </div>
+        </Link>
+        )
+    }
+  }
+
+
   updateCart = (item) => {
     debugger;
     let cartCopy = this.state.cartList.slice(0);
@@ -85,6 +98,7 @@ class NavBar extends Component {
               DESIGNERS
             </div>
           </Link>
+          { this.loadProfile() }
           <div className="nav-title">
             <Link to="/" className="home-link">
               <div className="title-text">

@@ -27,11 +27,9 @@ class DesignersProductsContainer extends Component {
             return (
               <div className="product-container-item" key={index}>
                 <div className="shirt-container">
-                  <div className="design-area">
                     <img src={product.image}
                     alt={product.name}
                     className="ink" />
-                  </div>
                   <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={product.name}/>
                 </div>
                 <p><b>{product.name}</b></p>
