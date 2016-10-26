@@ -92,6 +92,7 @@ app.use(function(req, res, next) {
 app.use("/api/users", usersRoutes(knex));
 app.post("/api/register", registerRoutes(knex));
 app.post("/api/login", loginRoutes(knex));
+app.post("/api/logout", loginRoutes(knex));
 
 // products endpoint
 app.use("/api/products", productsRoutes(knex));

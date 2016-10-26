@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './NavBar.css';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 // import FlatButton from 'material-ui/FlatButton';
 
 class NavBar extends Component {
@@ -10,6 +10,53 @@ class NavBar extends Component {
 
     }
   };
+
+  componentDidMount() {
+    if (!localStorage.getItem('user')) {
+      browserHistory.push('/login')
+    }
+  }
+
+  handleLogout = () => {
+    let token = JSON.parse(localStorage.getItem('user'));
+    fetch(`http://localhost:8080/api/logout`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        token
+      )
+    }).then(response => {
+      if (response.status === 200)  {
+        localStorage.removeItem('user');
+        browserHistory.push(`/login`);
+      }
+    })
+  }
+
+
+  checkForUser = () => {
+    if (!localStorage.getItem('user')) {
+      return (
+        <Link to="/login" className="login-link">
+          <div className="login-button">
+            LOGIN
+          </div>
+        </Link>
+      )
+    } else {
+      return (
+        <div className="logout-button" onClick={ this.handleLogout }>
+          LOGOUT
+        </div>
+      )
+    }
+  }
+
+
+
 
   render() {
     return (
@@ -27,14 +74,7 @@ class NavBar extends Component {
               </div>
             </Link>
           </div>
-          <Link to="/login" className="login-link">
-            <div className="login-button">
-              LOGIN
-            </div>
-          </Link>
-          <div className="logout-button">
-            LOGOUT
-          </div>
+          { this.checkForUser() }
           <Link to="/shopping-bag" className="shopping-bag-link">
             <div className="shopping-bag-button">
               SHOPPING BAG (0)

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { browserHistory } from 'react-router'
 import './login_page.css'
 
 class LoginPage extends Component {
@@ -16,6 +17,10 @@ class LoginPage extends Component {
     }
   };
 
+  setLocalStorage = (response) => {
+    return localStorage.setItem('user', JSON.stringify({ token: response }));
+  }
+
   handleLoginClick = () => {
     console.log(this.state)
     let credentials = this.state
@@ -29,12 +34,14 @@ class LoginPage extends Component {
         credentials
       )
     }).then(response => {
-      return response.json()
+      return response.json();
     }).then( json => {
-      // do work here-m
-      window.user_token = json.token
+      this.setLocalStorage(json[0]);
+      browserHistory.push(`/`);
+      // window.user_token = json.token
     })
   }
+
 
 
   handleOnChange = (value, name) => {

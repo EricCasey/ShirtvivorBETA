@@ -52,32 +52,27 @@ module.exports = (knex) => {
     });
   });
 
-  router.post("/api/logout/:id", (req, res) => {
-    var id = req.body.id;
+  router.post("/api/logout", (req, res) => {
+    var token = req.body.token;
+    console.log(token);
     var currUser = null;
 
     knex
       .select("*")
-      .from("users")
-      .where("id", id)
-      .then((users) => {
-        if (users[0]) {
-          currUser = users[0]
-
-          knex
-            .select("*")
-            .from("sessions")
-            .where("user_id", currUser.id)
-            .then((hasSession) => {
-              if (hasSession[0]) {
-
-                knex('sessions')
-                  .where('user_id', currUser.id)
-                  .del()
-              }
+      .from("sessions")
+      .where("token", token)
+      .then((hasSession) => {
+        if (hasSession[0]) {
+          knex('sessions')
+            .where('token', token)
+            .del()
+            .then((results) => {
+              res.json(results);
+              console.log(results);
             })
         }
-    });
+      })
+
   });
 
 
