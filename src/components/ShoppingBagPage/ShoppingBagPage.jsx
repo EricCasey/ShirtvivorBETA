@@ -48,9 +48,15 @@ class ShoppingBagPage extends Component {
                     {this.props.cartList.map((product, index) => {
                         return (
                             <div className="cart-item" key={index}>
-                                <img src={product.image}/>
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                />
                                 <p className="operator">+</p>
-                                <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'/>
+                                <img
+                                    src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'
+                                    alt={ product.name }
+                                />
                                 <p>
                                     <b>{product.name}</b>
                                 </p>
