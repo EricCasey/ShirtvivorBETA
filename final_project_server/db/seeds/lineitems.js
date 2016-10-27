@@ -1,6 +1,4 @@
 exports.seed = function(knex, Promise) {
-  return knex('lineitems').del()
-    .then(function () {
       return Promise.all([
       //   knex('lineitems').insert({
       //     id: 1,
@@ -14,6 +12,5 @@ exports.seed = function(knex, Promise) {
       //     product_id: 2,
       //     user_id: 1
       // })
-      ]);
-    });
-};
+    ]);
+  };
