@@ -22,6 +22,7 @@ exports.seed = function(knex, Promise) {
           password: '123',
           is_designer: true,
           is_admin: true
+          // image_submission: 'http://i.imgur.com/HpStImm.jpg'
       }),
         knex('users').insert({
           id: 3,

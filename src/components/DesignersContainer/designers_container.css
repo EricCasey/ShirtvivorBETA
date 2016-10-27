@@ -9,15 +9,29 @@
   margin-top: 80px;
   justify-content: center;
 }
-
 .designer-item {
 width: 25%;
 font-family: 'Istok Web', sans-serif;
-
 }
-
 .profileImg {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  max-height: 30px;
+  max-width: 30px;
+  margin-right: 120px;
+}
+.designer-id {
+  margin-top: -10px;
+}
+.desc {
+  font-style:italic;
+}
+.design-title {
+  font-weight:bolder;
+}
+
+h2 {
+  margin-left: 45px;
+  margin-top: 0;
+  border-bottom: solid #C8C9C9 1px;
+  font-family: 'Istok Web', sans-serif;
 }

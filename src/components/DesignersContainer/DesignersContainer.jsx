@@ -11,15 +11,16 @@ class DesignersContainer extends Component {
 
     render() {
         return (
-            <div className='designer-list'>
-                {this.props.designers.map((designer, index) => {
-                    return <div key={index} className="designer-item">
-                        <img className='profileImg' src={designer.profileImg} alt={designer.name}/>
-                        <p>Name: {designer.name}</p>
-                        <p>Location: {designer.location}</p>
-                    </div>
-                })}
-            </div>
+            // <div className='designer-list'>
+            //     {this.props.designers.map((designer, index) => {
+            //         return <div key={index} className="designer-item">
+            //             <img className='profileImg' src={designer.profileImg} alt={designer.name}/>
+            //             <p>Name: {designer.name}</p>
+            //             <p>Location: {designer.location}</p>
+            //         </div>
+            //     })}
+            // </div>
+            <div> </div>
         )
     }
 }

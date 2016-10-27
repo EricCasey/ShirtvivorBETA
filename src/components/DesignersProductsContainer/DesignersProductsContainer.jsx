@@ -34,7 +34,7 @@ class DesignersProductsContainer extends Component {
                 </div>
                 <p><b>{product.name}</b></p>
                 <p>{product.description}</p>
-                <p>${product.price_cents}</p>
+                <p>${product.price_cents/100}</p>
                 <div
                   className="product-cart-button"
                   onClick={this.handleOnClick.bind(this, product)}>

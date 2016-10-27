@@ -100,7 +100,7 @@ class NavBar extends Component {
         <div className="nav-bar-container">
           <Link to="/designers" className="designers-link">
             <div className="designers-button">
-              SHOP
+              DESIGNERS
             </div>
           </Link>
           { this.loadProfile() }
