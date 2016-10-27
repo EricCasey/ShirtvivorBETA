@@ -18,6 +18,8 @@ class DesignersProductsContainer extends Component {
     this.props.updateCart(value);
   }
 
+  // { ((this.props.Subtotal() /100) + ((this.props.getSubtotal() / 100) * 0.13) + (this.props.cartList.length * 3.00)).toFixed(2) }
+
   render() {
     return (
 
@@ -34,7 +36,7 @@ class DesignersProductsContainer extends Component {
                 </div>
                 <p><b>{product.name}</b></p>
                 <p>{product.description}</p>
-                <p>${product.price_cents/100}</p>
+                <p>${ (product.price_cents / 100.00).toFixed(2) }</p>
                 <div
                   className="product-cart-button"
                   onClick={this.handleOnClick.bind(this, product)}>

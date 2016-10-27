@@ -131,6 +131,7 @@ class NavBar extends Component {
             imgFile: this.state.imgFile,
             submitImage: this.submitImage,
             updateCart: this.updateCart,
+            clearState: this.clearState,
             getSubtotal: this.getSubtotal
           })
         })}

@@ -8,7 +8,6 @@ class ShoppingBagPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedin: false
         }
     };
 
@@ -26,6 +25,8 @@ class ShoppingBagPage extends Component {
         }
     }
 
+
+
     render() {
         return (
             <div className="cart-items-container">
@@ -34,15 +35,17 @@ class ShoppingBagPage extends Component {
                 <div id="checkout-card">
                     <div>
                         <h2>SUMMARY</h2>
-                        <p>Subtotal: ${this.props.getSubtotal()/100}</p>
-                        <p>Shipping: $</p>
-                        <p>Total: $</p>
+                        <p>Subtotal: ${ (this.props.getSubtotal() / 100.00).toFixed(2) }</p>
+                        <p>Taxes: ${ ((this.props.getSubtotal() / 100.00) * 0.13).toFixed(2) }</p>
+                        <p>Shipping: ${ (this.props.cartList.length * 3.00).toFixed(2) }</p>
+                        <p>Total: ${ ((this.props.getSubtotal() / 100) + ((this.props.getSubtotal() / 100) * 0.13) + (this.props.cartList.length * 3.00)).toFixed(2) }</p>
                     </div>
 
                     <div className="checkout-button">
                       <StripeCheckout
-                      getSubtotal={this.props.getSubtotal}
-                      cartList={this.props.cartList}/>
+                          getSubtotal={this.props.getSubtotal}
+                          cartList={this.props.cartList}
+                      />
                     </div>
                     <img id="stripelogo"
                     role="presentation" src="https://2sorea2b9ama3o8i8o2afd7a-wpengine.netdna-ssl.com/wp-content/uploads/2016/03/outline@3x.png" href="http://www.stripe.com"/>
@@ -66,7 +69,7 @@ class ShoppingBagPage extends Component {
                                 </p>
                                 <p>designer: {product.user_id} </p>
                                 <p>{product.description}</p>
-                                <p>${product.price_cents}</p>
+                                <p>${product.price_cents / 100.00}</p>
                             </div>
                         )
                     })
