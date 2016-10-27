@@ -55,3 +55,8 @@ h2 {
 .checkout-button:hover {
   cursor: pointer;
 }
+#stripelogo {
+  width: 50%;
+  margin-top: 3px;
+  margin-left: 25%;
+}

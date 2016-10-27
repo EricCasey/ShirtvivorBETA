@@ -2,8 +2,10 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('sessions', function (table) {
     table.increments();
     table.string('token');
-    table.integer('user_id').unsigned()
-    table.foreign('user_id').references('users.id');
+    table.integer('user_id');
+    table.foreign('user_id');
+    // .unsigned()
+    // .references('users.id');
   });
 };
 

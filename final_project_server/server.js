@@ -24,7 +24,7 @@ const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login");
 const designersRoutes = require("./routes/designers");
 const designerProductsRoutes = require("./routes/designerProducts");
-
+const orderRoutes = require("./routes/order");
 // User authentication zone
 
 const session = require("express-session");
@@ -93,6 +93,7 @@ app.use("/api/users", usersRoutes(knex));
 app.post("/api/register", registerRoutes(knex));
 app.post("/api/login", loginRoutes(knex));
 app.post("/api/logout", loginRoutes(knex));
+app.post("/api/order", orderRoutes(knex));
 
 // products endpoint
 app.use("/api/products", productsRoutes(knex));

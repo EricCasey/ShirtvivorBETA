@@ -6,22 +6,37 @@ import configs from '../../configs.json';
 export default class TakeMoney extends React.Component {
 
   onToken(token){
-    fetch('/save-stripe-token', {
+    fetch('http://localhost:8080/api/order', {
       method: 'POST',
       body: JSON.stringify(token),
     }).then(token => {
+      // console.log(token + "blah")
       //put computer code here
+    });
+  }
+
+  sendOrder(){
+    fetch('http://localhost:8080/api/order', {
+      method: 'POST',
+      body: JSON.stringify({
+        cartList: this.props.cartList,
+        total_price_cents: this.props.getSubtotal(),
+        stripe_order_token: 'blah'
+      }
+      ),
+    }).then(cart => {
+      console.log(cart + "this is my cart after")
     });
   }
 
   render() {
     return (
       <StripeCheckout
-        name="Shirtvivor"
-        description="You're buying a shirt"
-        image="https://s-media-cache-ak0.pinimg.com/564x/1a/65/50/1a6550c1854176fda108bda4ee9ce396.jpg"
+        name="SHIRTVIVOR"
+        description="Delivery in X days"
+        image="https://static-s.aa-cdn.net/img/ios/371279677/1fbf8e2fbaf52b6caa1d1de481f8eeb9?v=1"
         ComponentClass="div"
-        panelLabel="Give Money"
+        panelLabel="total: "
         amount={this.props.getSubtotal()}
         currency="USD"
         stripeKey={configs.stripe_api_key}
@@ -36,6 +51,7 @@ export default class TakeMoney extends React.Component {
         zipCode={false}
         // allowRememberMe
         token={this.onToken}
+        onClick={this.sendOrder()}
         // Note: `reconfigureOnUpdate` should be set to true IFF, for some reason
         // you are using multiple stripe keys
         reconfigureOnUpdate={false}

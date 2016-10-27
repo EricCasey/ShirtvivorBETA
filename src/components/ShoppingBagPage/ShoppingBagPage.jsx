@@ -26,23 +26,6 @@ class ShoppingBagPage extends Component {
         }
     }
 
-    stripeModal() {
-      return (
-        <form action="/your-server-side-code" method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js" className="stripe-button"
-            data-key="pk_test_QA6bIejb5MhL2m2PQkGb4M1N"
-            data-amount="999"
-            data-name="Demo Site"
-            data-description="Widget"
-            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-            data-locale="auto"
-            data-currency="cad">
-          </script>
-        </form>
-      )
-    }
-
     render() {
         return (
             <div className="cart-items-container">
@@ -51,18 +34,18 @@ class ShoppingBagPage extends Component {
                 <div id="checkout-card">
                     <div>
                         <h2>SUMMARY</h2>
-                        <p>Subtotal: ${this.props.getSubtotal()}</p>
-                        <p>Shipping:
-                        </p>
-                        <p>TOTAL:
-                        </p>
+                        <p>Subtotal: ${this.props.getSubtotal()/100}</p>
+                        <p>Shipping: $</p>
+                        <p>Total: $</p>
                     </div>
 
                     <div className="checkout-button">
                       <StripeCheckout
-                      getSubtotal={this.props.getSubtotal}/>
+                      getSubtotal={this.props.getSubtotal}
+                      cartList={this.props.cartList}/>
                     </div>
-
+                    <img id="stripelogo"
+                    role="presentation" src="https://2sorea2b9ama3o8i8o2afd7a-wpengine.netdna-ssl.com/wp-content/uploads/2016/03/outline@3x.png" href="http://www.stripe.com"/>
                 </div>
                 <div id="line-items">
                     {this.props.cartList.map((product, index) => {
@@ -81,6 +64,7 @@ class ShoppingBagPage extends Component {
                                 <p>
                                     <b>{product.name}</b>
                                 </p>
+                                <p>designer: {product.user_id} </p>
                                 <p>{product.description}</p>
                                 <p>${product.price_cents}</p>
                             </div>

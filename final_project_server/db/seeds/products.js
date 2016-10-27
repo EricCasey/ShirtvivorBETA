@@ -17,10 +17,10 @@ exports.seed = function(knex, Promise) {
         knex('products').insert({
           id: 2,
           user_id: 2,
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Chess_qlt45.svg/2000px-Chess_qlt45.svg.png',
-          name: 't-shirt number two',
-          price_cents: 2999,
-          description: 'omg this shirt is off the heezy!',
+          image: 'http://i.imgur.com/WYdYVde.png',
+          name: 'ESC-001',
+          price_cents: 6660,
+          description: 'lorem ipsum dolor sit amet tris nore viaco papa bless',
           featured: true
         }),
         knex('products').insert({
@@ -35,7 +35,7 @@ exports.seed = function(knex, Promise) {
         knex('products').insert({
           id: 4,
           user_id: 3,
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Chess_klt45.svg/2000px-Chess_klt45.svg.png',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/BarnLeaf-2.svg',
           name: 't-shirt number four',
           price_cents: 2999,
           description: 'omg this shirt is off the asdfkh!',
@@ -71,7 +71,7 @@ exports.seed = function(knex, Promise) {
         knex('products').insert({
           id: 8,
           user_id: 4,
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Inkscape_icons_object_tweak_attract.svg/200px-Inkscape_icons_object_tweak_attract.svg.png',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Barnstar_of_Charles_IV.svg',
           name: 't-shirt numbewRase',
           price_cents: 2999,
           description: 'omg this shirt is off the chain!',
