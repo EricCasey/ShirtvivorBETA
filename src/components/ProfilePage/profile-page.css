@@ -1,0 +1,65 @@
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-image-header {
+  display: flex;
+  margin: 65px 0;
+  font-family: 'Istok Web', sans-serif;
+  font-size: 24px;
+}
+
+  .upload-image-container {
+    width: 304px;
+  }
+
+.upload-image-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.fileInput {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px;
+  flex: 1;
+  outline: none;
+  cursor: pointer;
+  width: 140px;
+  margin-right: 10px;
+}
+
+.imgPreview {
+  text-align: center;
+  margin-top: 20px;
+  height: 300px;
+  width: 300px;
+  border: 2px solid #000000;
+}
+
+.imgPreview img {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.previewText {
+  width: 100%;
+  margin-top: 20px;
+  font-family: 'Istok Web', sans-serif;
+}
+
+.submitButton {
+  padding: 12px;
+  background: #000000;
+  border: none;
+  color: #ffffff;
+  font-family: 'Istok Web', sans-serif;
+  font-size: 10pt;
+  cursor: pointer;
+  outline: none;
+  height: 38px;
+}

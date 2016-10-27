@@ -7,7 +7,8 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartList: []
+      cartList: [],
+      imgFile: null
     }
   };
 
@@ -68,6 +69,12 @@ class NavBar extends Component {
     }
   }
 
+  submitImage = (image) => {
+    this.setState({
+      ...this.state,
+      imgFile: image
+    })
+  }
 
   updateCart = (item) => {
     let cartCopy = this.state.cartList.slice(0);
@@ -100,7 +107,7 @@ class NavBar extends Component {
         <div className="nav-bar-container">
           <Link to="/designers" className="designers-link">
             <div className="designers-button">
-              SHOP
+              DESIGNERS
             </div>
           </Link>
           { this.loadProfile() }
@@ -119,7 +126,13 @@ class NavBar extends Component {
           </Link>
         </div>
         {React.Children.map(this.props.children, (child) => {
-          return React.cloneElement(child, { updateCart: this.updateCart, cartList: this.state.cartList, getSubtotal: this.getSubtotal })
+          return React.cloneElement(child, {
+            cartList: this.state.cartList,
+            imgFile: this.state.imgFile,
+            submitImage: this.submitImage,
+            updateCart: this.updateCart,
+            getSubtotal: this.getSubtotal
+          })
         })}
       </div>
     )
