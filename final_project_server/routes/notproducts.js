@@ -8,8 +8,8 @@ module.exports = (knex) => {
   router.get("/", (req, res) => {
     knex
       .select("*")
-      .from("products")
-      .where("featured", false)
+      .from("users")
+      .where("is_designer", false)
       .then((results) => {
         res.json(results);
     });

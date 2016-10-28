@@ -27,25 +27,47 @@ class ProfilePage extends Component {
     }
   }
 
+
+
+
   _handleSubmit(e) {
+
+    function _imgSubmit(data) {
+      fetch('http://localhost:8080/api/newdesign', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+         'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    }
+
+
     e.preventDefault();
     this.props.submitImage(this.state.file)
   //  console.log('handle uploading-(props from navbar)', this.state.file);
+    // let Base64img = document.getElementById('profileImg').src
+    // let upload = Base64img.replace("data:image/jpeg;base64,","")
 
-   let Base64img = document.getElementById('profileImg').src
-   let upload = Base64img.replace("data:image/jpeg;base64,","")
-      fetch(`https://api.imgur.com/3/upload`, {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Client-ID 6338d70e3026ca4'
-        },
-        body: {image: upload}
-
-      }).then(response => {
-        return response.json();
-      }).then( json => {
-        console.log(json)
-      })
+    const body_data = new FormData({
+      type: 'file'
+    });
+    body_data.append('image', this.state.file);
+    fetch(`https://api.imgur.com/3/upload`, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Client-ID 6338d70e3026ca4'
+      },
+      body: body_data
+    }).then(response => {
+      return response.json();
+    }).then( json => {
+      return json.data.link
+    }).then( link => {
+      console.log(link)
+      _imgSubmit(link)
+    })
 }
 
 

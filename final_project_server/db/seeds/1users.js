@@ -35,9 +35,9 @@ exports.seed = function(knex, Promise) {
     knex('users').insert({
       id: 4,
       first_name: 'Eric',
-      last_name: 'Tehbest',
+      last_name: 'not a designer',
       username: 'IAMNOTADESIGNERWTF',
-      email: 'erictashdfiuhehbest@gmail.com',
+      email: 'best@gmail.com',
       password: '123',
       is_designer: false,
       is_admin: true
@@ -47,7 +47,7 @@ exports.seed = function(knex, Promise) {
       first_name: 'Eric',
       last_name: 'Tehbest',
       username: 'Chanel',
-      email: 'ericteasdfasdfhbest@gmail.com',
+      email: 'erichbest@gmail.com',
       password: '123',
       is_designer: true,
       is_admin: true
@@ -77,7 +77,7 @@ exports.seed = function(knex, Promise) {
       first_name: 'Eric',
       last_name: 'Tehbest',
       username: 'Givency',
-      email: 'erictsdfasdfehbest@gmail.com',
+      email: 'ericts@gmail.com',
       password: '123',
       is_designer: true,
       is_admin: true
@@ -87,7 +87,7 @@ exports.seed = function(knex, Promise) {
       first_name: 'Eric',
       last_name: 'Tehbest',
       username: 'Gucci',
-      email: 'erictehaseraserbest@gmail.com',
+      email: 'eric321@gmail.com',
       password: '123',
       is_designer: true,
       is_admin: true
@@ -97,10 +97,10 @@ exports.seed = function(knex, Promise) {
       first_name: 'Eric',
       last_name: 'Tehbest',
       username: 'Versace',
-      email: 'erictehbiuhasdiuhest@gmail.com',
+      email: 'eric123@gmail.com',
       password: '123',
-      is_designer: true,
-      is_admin: true
+      is_designer: false,
+      is_admin: true,
     })
   ]);
 };

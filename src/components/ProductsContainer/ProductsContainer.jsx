@@ -4,7 +4,7 @@ import './products_container.css';
   class ProductsContainer extends Component {
     constructor(props) {
       super(props);
-      this.state = { products: [] }
+      this.state = { users: [] }
     };
 
     componentDidMount() {
@@ -13,8 +13,8 @@ import './products_container.css';
         fetch(`http://localhost:8080/api/notproducts`)
             .then( result => {
               var blah = result.json()
-              blah.then( products => {
-                this.setState({ products: products });
+              blah.then( users => {
+                this.setState({ users: users });
                 this.forceUpdate()
               });
             })
@@ -33,20 +33,19 @@ import './products_container.css';
         <p><a href="#">Submit your own design</a></p>
       </div>
         {
-          this.state.products.map( (product, index) => {
+          this.state.users.map( (users, index) => {
             return (
               <div className="product-item" key={index}>
               <img className="profileImg" src="http://i.imgur.com/HpStImm.jpg" role="presentation"/>
-              <p className="designer-id">user_id: {product.user_id}</p>
-                <p className="design-title">{product.name}</p>
+              <p className="designer-id"><b>{users.username}</b></p>
                 <div className="shirt-container">
-                    <img src={product.image}
-                    alt={product.name}
+                    <img src={users.image_submission}
+                    alt={users.name}
                     className="ink" />
-                  <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={product.name}/>
+                  <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={users.name}/>
                 </div>
-                <p className="desc">{product.description}</p>
-                <p>Vote: UP || DOWN</p>
+                <p>Votes: 0</p>
+                <div className="vote-button">VOTE</div>
               </div>
             )
           })

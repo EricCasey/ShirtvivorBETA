@@ -46,3 +46,21 @@
   max-width: 75px;
   max-height: 100px;
 }
+
+.vote-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  height: 30px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 80px;
+  border: none;
+}
+
+.vote-button:hover {
+  cursor: pointer;
+}
