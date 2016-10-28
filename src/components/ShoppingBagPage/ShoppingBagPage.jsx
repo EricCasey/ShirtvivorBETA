@@ -38,7 +38,7 @@ class ShoppingBagPage extends Component {
                         <p>Subtotal: ${ (this.props.getSubtotal() / 100.00).toFixed(2) }</p>
                         <p>Taxes: ${ ((this.props.getSubtotal() / 100.00) * 0.13).toFixed(2) }</p>
                         <p>Shipping: ${ (this.props.cartList.length * 3.00).toFixed(2) }</p>
-                        <p>Total: ${ ((this.props.getSubtotal() / 100) + ((this.props.getSubtotal() / 100) * 0.13) + (this.props.cartList.length * 3.00)).toFixed(2) }</p>
+                        <p>Total: ${ ((this.props.getSubtotal() / 100) + ((this.props.getSubtotal() / 100) * 0.13) + (this.props.cartList.length * 3.00)).toFixed(2) } USD</p>
                     </div>
 
                     <div className="checkout-button">
@@ -63,13 +63,12 @@ class ShoppingBagPage extends Component {
                                     src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'
                                     alt={ product.name }
                                 />
-
                                 <p>
                                     <b>{product.name}</b>
                                 </p>
-                                <p>designer: {product.user_id} </p>
+                                <p>Designer: {product.user_id} </p>
                                 <p>{product.description}</p>
-                                <p>${product.price_cents / 100.00}</p>
+                                <p>${product.price_cents / 100.00} USD</p>
                             </div>
                         )
                     })

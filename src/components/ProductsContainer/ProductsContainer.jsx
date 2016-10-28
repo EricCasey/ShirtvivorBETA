@@ -10,18 +10,16 @@ import './products_container.css';
     componentDidMount() {
       var invocation = new XMLHttpRequest();
       if (invocation) {
-        fetch(`http://localhost:8080/api/products`)
+        fetch(`http://localhost:8080/api/notproducts`)
             .then( result => {
               var blah = result.json()
-
               blah.then( products => {
                 this.setState({ products: products });
                 this.forceUpdate()
               });
-
             })
-    };
-  }
+      };
+    }
 
 
   render() {
@@ -57,34 +55,5 @@ import './products_container.css';
 
     )
   }
-
-    // render() {
-    //   return (
-    //
-    //     <div className='productList'>
-    //
-    //       {
-    //         this.state.products.map( (product, index) => {
-    //         return <div key={index} className="product-item">
-    //           <p>Item: {product.name} </p>
-    //           <div><img src={product.image}  alt={product.name}/></div>
-    //           <p>Description: {product.description}</p>
-    //           <p>Price: {product.price_cents}</p>
-    //           <p>{this.state.products}</p>
-    //         </div>
-    //
-    //         })
-    //       }
-    //
-    //
-    //
-    //     </div>
-    //
-    //
-    //   )
-    // }
-
-
-
 }
 export default ProductsContainer

@@ -11,7 +11,6 @@ class DesignersSideBar extends Component {
     };
 
     handleDesignerClick = (event) => {
-        console.log(event)
         if (event.id === 'all') {
             this.props.onDesignerClick(event.id)
         } else {

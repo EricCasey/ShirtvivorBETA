@@ -20,9 +20,10 @@ h2 {
   width: 100px;
   float: right;
 }
-/*.cart-item p {
-  margin: 5px 0;
-}*/
+.cart-item p {
+  font-size: 80%;
+  line-height: 10px;
+}
 .operator {
   float:right;
   margin-top: 40px;

@@ -16,7 +16,7 @@ class ProfilePage extends Component {
     let reader = new FileReader();
     if (this.props.imgFile) {
       let file = this.props.imgFile;
-
+      console.log(file.data)
       reader.onloadend = () => {
         this.setState({
           file: file,
@@ -27,12 +27,27 @@ class ProfilePage extends Component {
     }
   }
 
-
   _handleSubmit(e) {
     e.preventDefault();
     this.props.submitImage(this.state.file)
-    console.log('handle uploading-', this.state.file);
-  }
+  //  console.log('handle uploading-(props from navbar)', this.state.file);
+
+   let Base64img = document.getElementById('profileImg').src
+   let upload = Base64img.replace("data:image/jpeg;base64,","")
+      fetch(`https://api.imgur.com/3/upload`, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Client-ID 6338d70e3026ca4'
+        },
+        body: {image: upload}
+
+      }).then(response => {
+        return response.json();
+      }).then( json => {
+        console.log(json)
+      })
+}
+
 
   _handleImageChange(e) {
     e.preventDefault();
@@ -54,7 +69,7 @@ class ProfilePage extends Component {
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} alt="upload preview"/>);
+      $imagePreview = (<img id='profileImg' src={imagePreviewUrl} alt="upload preview"/>);
     } else {
       $imagePreview = (<div className="previewText">Please select an image for preview</div>);
     }
