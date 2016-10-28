@@ -1,62 +1,169 @@
-.cart-items-container {
+.shopping-bag-container {
   font-family: 'Istok Web', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
-h2 {
+
+
+.shopping-bag-header {
+  display: flex;
+  width: 100%;
+  margin-top: 45px;
+  /*border-bottom: solid #C8C9C9 1px;*/
+  margin: 45px 0 0 0;
+  border-bottom: solid #C8C9C9 1px;
+
+}
+
+.shopping-bag-header-content {
+  display:flex;
+  align-items: center;
   margin-left: 45px;
-  margin-top: 0;
-  border-bottom: solid #C8C9C9 1px;
 }
-#line-items {
-  margin-top: 60px;
+
+.shopping-bag-icon {
+  font-size: 20px;
+  margin: 0px 10px 7px 0px;
 }
-.cart-item {
-  border-bottom: solid #C8C9C9 1px;
+
+.shopping-bag-header-text {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.shopping-bag-content {
+  display: flex;
+  width: 100%;
+}
+
+.shopping-bag-items-container {
+  display: flex;
   width: 50%;
+  margin: 30px 0;
+}
+
+.shopping-bag-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.cart-item {
+  display: flex;
+  border-bottom: solid #C8C9C9 1px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   height: 120px;
   padding: 8px;
   margin: 1% 0% 1% 45px;
 }
+
+.cart-item-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cart-item img {
   width: 100px;
   float: right;
 }
-/*.cart-item p {
-  margin: 5px 0;
-}*/
+
 .operator {
-  float:right;
-  margin-top: 40px;
-  margin-left: 10px;
+ padding: 0px;
+ margin-left: 15px;
+ margin-right: 17px;
 }
-#checkout-card {
-  border: solid 2px black;
-  border-radius: 1px;
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
+  font-size: 14px;
+}
+
+.cart-item-info p{
+  padding: 0;
+  margin: 5px 0 0 0;
+}
+
+.remove-item-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  height: 30px;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 80px;
+  border: none;
+}
+
+.remove-item-button:hover {
+  cursor: pointer;
+}
+
+.checkout-card {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 25%;
-  float: right;
-  margin-right: 60px;
+  height: 250px;
+  margin-left: 65%;
   margin-top: 60px;
 }
+
+.checkout-header {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.checkout-info-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkout-info-labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-info-values {
+  display: flex;
+  flex-direction: column;
+}
+
 .checkout-button {
   background-color: #000000;
   color: #ffffff;
   font-size: 10px;
   height: 30px;
-  width: 40%;
+  width: 65%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0 auto 5px auto;
+  margin-top: 20px;
   border: none;
 }
-#checkout-card p{
+
+
+
+.checkout-card p{
   margin: 5px;
 }
+
 .checkout-button:hover {
   cursor: pointer;
 }
-#stripelogo {
-  width: 50%;
-  margin-top: 3px;
-  margin-left: 25%;
-}
+
+
+
