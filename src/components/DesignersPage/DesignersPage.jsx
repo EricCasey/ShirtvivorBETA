@@ -35,8 +35,6 @@ class DesignersPage extends Component {
 
     handleDesignerClick = (event) => {
         if (event === "all") {
-            console.log('allclicked')
-
             var invocation = new XMLHttpRequest();
             if (invocation) {
                 fetch(`http://localhost:8080/api/products`).then(result => {
@@ -52,17 +50,13 @@ class DesignersPage extends Component {
             let targetId = event.target.id;
             let targetUsername = event.target.className;
             this.selectedDesigner = targetUsername;
-            console.log(`${this.selectedDesigner} clicked`);
             let invocation = new XMLHttpRequest();
-
             if (invocation) {
                 fetch(`http://localhost:8080/api/products/${targetId}`).then(result => {
                     let thisDesigner = result.json()
-                    console.log(thisDesigner)
                     thisDesigner.then(products => {
                         this.setState({products: products});
                         this.forceUpdate()
-                        console.log(this.state.products);
                     });
                 })
             };

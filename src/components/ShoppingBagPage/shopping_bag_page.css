@@ -70,7 +70,10 @@
   width: 100px;
   float: right;
 }
-
+.cart-item p {
+  font-size: 80%;
+  line-height: 10px;
+}
 .operator {
  padding: 0px;
  margin-left: 15px;
@@ -164,6 +167,3 @@
 .checkout-button:hover {
   cursor: pointer;
 }
-
-
-

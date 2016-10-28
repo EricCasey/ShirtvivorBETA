@@ -25,6 +25,7 @@ const loginRoutes = require("./routes/login");
 const designersRoutes = require("./routes/designers");
 const designerProductsRoutes = require("./routes/designerProducts");
 const orderRoutes = require("./routes/order");
+const notProductsRoutes = require("./routes/notproducts");
 // User authentication zone
 
 const session = require("express-session");
@@ -106,6 +107,7 @@ app.use("/api/lineitems", lineitemsRoutes(knex));
 
 // designers endpoint
 app.use("/api/designers", designersRoutes(knex));
+app.use('/api/notproducts', notProductsRoutes(knex));
 
 // used on the designers page for switching designers
 app.get('/api/products/:id', designerProductsRoutes(knex));
