@@ -24,32 +24,31 @@ import './products_container.css';
 
   render() {
     return (
+      <div className="home-page-container">
 
-      <div className="productList">
-      <div className="product-item">
-        <h2>Applicant Designs</h2>
-        <p>Vote for your favourite design!</p>
-        <p>-or-</p>
-        <p><a href="#">Submit your own design</a></p>
-      </div>
-        {
-          this.state.users.map( (users, index) => {
-            return (
-              <div className="product-item" key={index}>
-              <img className="profileImg" src="http://i.imgur.com/HpStImm.jpg" role="presentation"/>
-              <p className="designer-id"><b>{users.username}</b></p>
-                <div className="shirt-container">
-                    <img src={users.image_submission}
-                    alt={users.name}
-                    className="ink" />
-                  <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={users.name}/>
+        <div className="vote-message">
+          <b>Vote on your favourite design to have it added to the store!</b>
+        </div>
+
+        <div className="productList">
+          {
+            this.state.users.map( (users, index) => {
+              return (
+                <div className="product-item" key={index}>
+                  <p className="designer-id"><b>{users.username}</b></p>
+                  <div className="shirt-container">
+                      <img src={users.image_submission}
+                      alt={users.name}
+                      className="ink" />
+                    <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={users.name}/>
+                  </div>
+                  <p>Votes: 0</p>
+                  <div className="vote-button">VOTE</div>
                 </div>
-                <p>Votes: 0</p>
-                <div className="vote-button">VOTE</div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
 
     )

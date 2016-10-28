@@ -59,7 +59,7 @@ class ShoppingBagPage extends Component {
                                         </div>
                                         <div className="cart-item-info">
                                             <p><b>{product.name}</b></p>
-                                            <p>${product.price_cents / 100.00}</p>
+                                            <p>${ (product.price_cents / 100).toFixed(2) }</p>
                                         </div>
                                         <div className="remove-item-button">
                                             REMOVE
