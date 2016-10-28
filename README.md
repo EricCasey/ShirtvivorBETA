@@ -1,1 +1,1 @@
-A Project by @adamrysyk & @EricCasey for Lighthouse Labs (Submitted Nov 2017)
+A Project by @AdamRysyk & @EricCasey for Lighthouse Labs (Submitted Nov 2017)
