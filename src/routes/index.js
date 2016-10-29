@@ -15,13 +15,8 @@ const routes = (
       <Route path='/profile' component={ ProfilePage } />
       <Route path='/login' component={ LoginPage } />
       <Route path='/shopping-bag' component={ ShoppingBagPage } />
-
-
     </Route>
   </Router>
 )
 
 export default routes;
-
-
-

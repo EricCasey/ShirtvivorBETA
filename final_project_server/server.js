@@ -94,9 +94,7 @@ app.use(function(req, res, next) {
 app.use("/api/users", usersRoutes(knex));
 app.post("/api/register", registerRoutes(knex));
 app.post("/api/login", loginRoutes(knex));
-
 app.post("/api/logout", loginRoutes(knex));
-
 app.post("/api/order", orderRoutes(knex));
 app.post("/api/imagesub", imageSubRoutes(knex));
 // products endpoint

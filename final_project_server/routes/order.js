@@ -1,49 +1,48 @@
 "use strict";
 
 const express = require('express');
-const router  = express.Router();
-var chance = require('chance').Chance();
+const router = express.Router();
+
 const bodyParser = require("body-parser")
 
-router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.urlencoded({
+  extended: true
+}));
 router.use(bodyParser.json())
 
 module.exports = (knex) => {
 
   router.post("/api/order", (req, res) => {
 
-    console.log(req.body)
+    let cartList = req.body.cartList;
+    let total = req.body.total_price_cents;
+    // console.log(cartList)
+    // console.log(total)
 
+    //create order in system upon "checkout" click
     knex("orders")
-      .insert({})
-      .from("users")
-      .where("email", email)
-      .andWhere("password", password)
-      .then((users) => {
-        if (users[0]) {
-          currUser = users[0]
-          knex
-            .select("*")
-            .from("sessions")
-            .where("user_id", currUser.id)
-            .then((hasSession) => {
-              if (!hasSession[0]) {
-                newToken = chance.guid();
-                console.log(newToken)
-                knex('sessions')
-                .returning('token')
-                .insert({user_id: currUser.id, token: newToken})
-                .then((results)=> {
-                  // res.cookie("token", newToken)
-                  res.json(results);
-                  console.log(results);
-
-                });
-              }
+      .returning("*")
+      .insert({
+        user_id: 1,
+        total_price_cents: Math.floor(total),
+        stripe_order_token: 'stipeordertoken'
+      })
+      .then((result) => {
+        // console.log(result)
+        cartList.map((cartItem, index) => {
+          knex("lineitems")
+            .insert({
+              order_id: result[0].id,
+              product_id: cartItem.id,
+              quantity: 1,
+              item_price_cents: Math.round(cartItem.price_cents),
+              total_price_cents: Math.round(cartItem.price_cents)
             })
-        }
-        // res.json(results);
-    });
+            .then((result) => {
+              // console.log(result)
+            })
+        })
+      })
   });
 
   return router;

@@ -56,11 +56,11 @@ class LoginPage extends Component {
     }).then(response => {
       return response.json();
     })
-    // .then( json => {
-    //   this.setLocalStorage(json[0]);
-    //   browserHistory.push(`/`);
-    //   // window.user_token = json.token
-    // })
+    .then( json => {
+      this.setLocalStorage(json[0]);
+      browserHistory.push(`/`);
+      // window.user_token = json.token
+    })
   }
 
 
