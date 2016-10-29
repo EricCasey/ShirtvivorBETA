@@ -42,6 +42,26 @@ class LoginPage extends Component {
     })
   }
 
+  handleCreateClick = () => {
+    console.log("create clicked")
+    console.log(this.state)
+    let signupInfo = this.state
+    fetch(`http://localhost:8080/api/register`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(signupInfo)
+    }).then(response => {
+      return response.json();
+    })
+    // .then( json => {
+    //   this.setLocalStorage(json[0]);
+    //   browserHistory.push(`/`);
+    //   // window.user_token = json.token
+    // })
+  }
 
 
   handleOnChange = (value, name) => {
@@ -96,7 +116,7 @@ class LoginPage extends Component {
             <div className="register-form">
               { this.generateInputs(registerValues) }
             </div>
-            <div className="login-form-button">CREATE</div>
+            <div className="login-form-button" onClick={ this.handleCreateClick }>CREATE</div>
           </div>
       </div>
     )

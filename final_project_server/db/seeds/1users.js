@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       username: 'Acne Studios',
       email: 'alicebaxter@gmail.com',
       password: '123',
-      is_designer: true,
+      is_designer: false,
       is_admin: true
 
     }),
