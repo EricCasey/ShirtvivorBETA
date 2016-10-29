@@ -10,6 +10,7 @@ module.exports = (knex) => {
       .select("*")
       .from("users")
       .where("is_designer", false)
+      .whereNot({image_submission: "empty"})
       .then((results) => {
         res.json(results);
     });

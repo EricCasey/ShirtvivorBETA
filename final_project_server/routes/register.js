@@ -22,7 +22,7 @@ module.exports = (knex) => {
         password: newUser.password,
         is_designer: false,
         is_admin: false,
-        image_submission: ''
+        image_submission: "empty"
       })
       .then((results) => {
         res.json(results);

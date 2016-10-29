@@ -29,7 +29,7 @@ module.exports = (knex) => {
       })
       .then((userinfo) => {
         knex('users')
-          .returning('*')
+          // .returning('*')
           .where('id', userinfo)
           .update({
             image_submission: imgurURL
@@ -39,7 +39,6 @@ module.exports = (knex) => {
           })
       })
   })
-
 
   return router;
 }
