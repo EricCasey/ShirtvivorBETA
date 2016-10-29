@@ -100,7 +100,14 @@ class ProfilePage extends Component {
     return (
       <div className="profile-page-container">
         <div className="current-user-products">
-          Your designs
+          <div className="profile-buttons">
+            <div className="profile-designs-button">
+              YOUR DESIGNS
+            </div>
+            <div className="profile-orders-button">
+              YOUR ORDERS
+            </div>
+          </div>
           <div className="user-products-items">
           </div>
         </div>

@@ -13,6 +13,43 @@
   flex-direction: column;
 }
 
+.profile-buttons {
+  display: flex;
+}
+
+.profile-designs-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  height: 30px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.profile-orders-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10px;
+  height: 30px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-designs-button:hover {
+  cursor: pointer;
+}
+
+.profile-orders-button:hover {
+  cursor: pointer;
+}
+
 .user-image-container {
   display: flex;
   margin-left: 425px;
