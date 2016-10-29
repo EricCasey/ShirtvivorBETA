@@ -81,7 +81,7 @@ class LoginPage extends Component {
             type={input.type}
             name={input.name}
             onChange={(e) => {this.handleOnChange(e.target.value, e.target.name)}} />
-          </div>
+        </div>
       )
     })
   };

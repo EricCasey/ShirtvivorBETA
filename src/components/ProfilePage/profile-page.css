@@ -1,20 +1,66 @@
 .profile-page-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.upload-image-header {
-  display: flex;
-  margin: 65px 0;
   font-family: 'Istok Web', sans-serif;
-  font-size: 24px;
 }
 
-  .upload-image-container {
-    width: 304px;
-  }
+.current-user-products {
+  display: flex;
+  border-right: 1px solid #CCC;
+  width: 20%;
+  height: 67vh;
+  margin-top: 75px;
+  margin-left: 45px;
+  flex-direction: column;
+}
+
+.user-image-container {
+  display: flex;
+  margin-left: 425px;
+  width: 70%;
+  position: fixed;
+  margin-top: 75px;
+}
+
+.user-image-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+
+}
+
+.user-image-header {
+  display: flex;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+
+.user-image-form-values {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  width: 100%;
+}
+
+.user-image-form-values input {
+  border: 1px solid #000000;
+  outline: none;
+  height: 20px;
+  min-height: 25px;
+  padding: 0 6px;
+  margin-bottom: 7px;
+  font-size: 12px;
+}
+
+.user-image-uploader {
+  display: flex;
+  flex-direction: column;
+  margin: 0 45px;
+}
+
+.upload-image-container {
+  width: 314px;
+}
 
 .upload-image-form {
   width: 100%;
@@ -29,27 +75,26 @@
   flex: 1;
   outline: none;
   cursor: pointer;
-  width: 130px;
+  width: 140px;
   margin-right: 20px;
 }
 
 .imgPreview {
   text-align: center;
-  margin-top: 20px;
-  height: 300px;
-  width: 300px;
+  margin-bottom: 20px;
+  height: 310px;
+  width: 310px;
   border: 2px solid #000000;
 }
 
 .imgPreview img {
-  max-height: 300px;
-  max-width: 300px;
+  max-height: 310px;
+  max-width: 310px;
 }
 
 .previewText {
   width: 100%;
   margin-top: 20px;
-  font-family: 'Istok Web', sans-serif;
 }
 
 .submitButton {
@@ -57,7 +102,6 @@
   background: #000000;
   border: none;
   color: #ffffff;
-  font-family: 'Istok Web', sans-serif;
   font-size: 10pt;
   cursor: pointer;
   outline: none;

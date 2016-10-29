@@ -8,15 +8,15 @@
   display: flex;
   width: 15%;
   font-family: 'Istok Web', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   margin-left: 45px;
-  margin-top: 90px;
+  margin-top: 75px;
 }
 
 .productList {
   display: flex;
   flex-direction: row;
-  margin-top: 90px;
+  margin-top: 75px;
   margin-left: 90px;
   flex-wrap: wrap;
   align-items: flex-start;

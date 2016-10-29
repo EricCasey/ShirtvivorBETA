@@ -6,8 +6,10 @@ class ProfilePage extends Component {
   constructor(props) {
       super(props)
       this.state = {
-        file: '',
-        imagePreviewUrl: '',
+        file: "",
+        imagePreviewUrl: "",
+        productName: "",
+        productDescription: "",
         submitFunction: function(data) {
             fetch('http://localhost:8080/api/imagesub', {
               method: 'POST',
@@ -97,20 +99,35 @@ class ProfilePage extends Component {
 
     return (
       <div className="profile-page-container">
-        <div className="current-user-info">
+        <div className="current-user-products">
+          Your designs
+          <div className="user-products-items">
+          </div>
         </div>
-        <div className="upload-image-header">
-          Upload your design to have it voted on by the community!
-        </div>
-        <div className="upload-image-container">
-          <form className="upload-image-form" onSubmit={(e)=>this._handleSubmit(e)}>
-            <input className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)} />
-            <button className="submitButton" type="submit" onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
-          </form>
-        </div>
-        <div className="preview-image-container">
-          <div className="imgPreview">
-            {$imagePreview}
+        <div className="user-image-container">
+          <div className="user-image-text">
+            <div className="user-image-header">
+              Upload a design to have it voted on by the community. If your submission gets enough votes, it will be featured and sold on the Shirtvivor shop!
+            </div>
+            <div className="user-image-form-values">
+              <label>Design name</label>
+              <input/>
+              <label>Short description (optional)</label>
+              <input/>
+            </div>
+          </div>
+          <div className="user-image-uploader">
+            <div className="preview-image-container">
+              <div className="imgPreview">
+                {$imagePreview}
+              </div>
+            </div>
+            <div className="upload-image-container">
+              <form className="upload-image-form" onSubmit={(e)=>this._handleSubmit(e)}>
+                <input className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)} />
+                <button className="submitButton" type="submit" onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

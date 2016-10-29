@@ -25,7 +25,7 @@ import './products_container.css';
 
     return (
 
-      <div id="home-page-container" className="home-page-container">
+      <div className="home-page-container">
 
         <div className="vote-message">
           <b>Vote on your favourite design to have it added to the store!</b>
