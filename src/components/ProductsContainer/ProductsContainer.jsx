@@ -10,7 +10,7 @@ import './products_container.css';
     componentDidMount() {
       var invocation = new XMLHttpRequest();
       if (invocation) {
-        fetch(`http://localhost:8080/api/notproducts`)
+        fetch(`http://localhost:8080/api/submissions`)
             .then( result => {
               var blah = result.json()
               blah.then( users => {
@@ -21,10 +21,8 @@ import './products_container.css';
       };
     }
 
-
   render() {
     return (
-
       <div className="productList">
       <div className="product-item">
         <h2>Applicant Designs</h2>
@@ -36,7 +34,7 @@ import './products_container.css';
           this.state.users.map( (users, index) => {
             return (
               <div className="product-item" key={index}>
-              <img className="profileImg" src="http://i.imgur.com/HpStImm.jpg" role="presentation"/>
+              <img className="profileImg" src={users.image_submission} role="presentation"/>
               <p className="designer-id"><b>{users.username}</b></p>
                 <div className="shirt-container">
                     <img src={users.image_submission}

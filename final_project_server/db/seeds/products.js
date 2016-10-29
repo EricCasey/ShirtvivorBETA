@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       name: 't-shirt number one',
       price_cents: 2999,
       description: 'omg this shirt is off the hook!',
-      featured: true
+      featured: false
     }),
     knex('products').insert({
       id: 2,
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
       name: 't-shirt number three',
       price_cents: 2999,
       description: 'omg this shirt is off the chain!',
-      featured: true
+      featured: false
     }),
     knex('products').insert({
       id: 4,
@@ -34,7 +34,7 @@ exports.seed = function(knex, Promise) {
       name: 't-shirt number four',
       price_cents: 2999,
       description: 'omg this shirt is off the asdfkh!',
-      featured: true
+      featured: false
     }),
     knex('products').insert({
       id: 5,
@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
       name: 't-shirt number five',
       price_cents: 2999,
       description: 'omg tis shirt is off the chain!',
-      featured: true
+      featured: false
     }),
     knex('products').insert({
       id: 6,
