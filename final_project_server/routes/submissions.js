@@ -8,9 +8,8 @@ module.exports = (knex) => {
   router.get("/", (req, res) => {
     knex
       .select("*")
-      .from("users")
-      .where("is_designer", false)
-      .whereNot({image_submission: "empty"})
+      .from("products")
+      .where("for_sale", false)
       .then((results) => {
         res.json(results);
     });

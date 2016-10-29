@@ -28,11 +28,17 @@ module.exports = (knex) => {
         }
       })
       .then((userinfo) => {
-        knex('users')
+        knex('products')
           // .returning('*')
-          .where('id', userinfo)
-          .update({
-            image_submission: imgurURL
+          .where('user_id', userinfo)
+          .insert({
+            image: imgurURL,
+            name: newProduct.name,
+            price_cents: 3999,
+            description: newProduct.description,
+            featured: false,
+            votes: 0,
+            for_sale: false
           })
           .then((results) => {
             res.json(results)

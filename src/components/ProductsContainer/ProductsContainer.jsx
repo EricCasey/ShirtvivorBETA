@@ -4,7 +4,7 @@ import './products_container.css';
   class ProductsContainer extends Component {
     constructor(props) {
       super(props);
-      this.state = { users: [] }
+      this.state = { products: [] }
     };
 
     componentDidMount() {
@@ -12,9 +12,9 @@ import './products_container.css';
       if (invocation) {
         fetch(`http://localhost:8080/api/submissions`)
             .then( result => {
-              var blah = result.json()
-              blah.then( users => {
-                this.setState({ users: users });
+              var results = result.json()
+              results.then( products => {
+                this.setState({ products: products });
                 this.forceUpdate()
               });
             })
@@ -33,17 +33,17 @@ import './products_container.css';
 
         <div className="productList">
           {
-            this.state.users.map( (users, index) => {
+            this.state.products.map( (products, index) => {
               return (
                 <div className="product-item" key={index}>
-                  <p className="designer-id"><b>{users.username}</b></p>
+                  <p className="designer-id"><b>{ products.name }</b></p>
                   <div className="shirt-container">
-                      <img src={users.image_submission}
-                      alt={users.name}
+                      <img src={ products.image }
+                      alt={ products.name }
                       className="ink" />
-                    <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={users.name}/>
+                    <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={products.name}/>
                   </div>
-                  <p>Votes: 0</p>
+                  <p>Votes: { products.votes }</p>
                   <div className="vote-button">VOTE</div>
                 </div>
               )

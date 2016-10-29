@@ -97,6 +97,8 @@ class ProfilePage extends Component {
 
     return (
       <div className="profile-page-container">
+        <div className="current-user-info">
+        </div>
         <div className="upload-image-header">
           Upload your design to have it voted on by the community!
         </div>

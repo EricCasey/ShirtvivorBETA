@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       username: 'Acne Studios',
       email: 'alicebaxter@gmail.com',
       password: '123',
-      is_designer: false,
+      is_designer: true,
       is_admin: true
 
     }),
@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
       username: 'I_AM_NOT_A_DESIGNER',
       email: 'best@gmail.com',
       password: '123',
-      is_designer: false,
+      is_designer: true,
       is_admin: true,
       image_submission: 'http://i.imgur.com/HpStImm.jpg'
     }),
@@ -70,7 +70,7 @@ exports.seed = function(knex, Promise) {
       username: 'Fendi',
       email: 'erictehbest@gmail.com',
       password: '123',
-      is_designer: true,
+      is_designer: false,
       is_admin: true
     }),
     knex('users').insert({
@@ -80,7 +80,7 @@ exports.seed = function(knex, Promise) {
       username: 'Givency',
       email: 'ericts@gmail.com',
       password: '123',
-      is_designer: true,
+      is_designer: false,
       is_admin: true
     }),
     knex('users').insert({
@@ -90,7 +90,7 @@ exports.seed = function(knex, Promise) {
       username: 'Gucci',
       email: 'eric321@gmail.com',
       password: '123',
-      is_designer: true,
+      is_designer: false,
       is_admin: true
     }),
     knex('users').insert({
@@ -99,6 +99,26 @@ exports.seed = function(knex, Promise) {
       last_name: 'Tehbest',
       username: 'Versace (applicant)',
       email: 'eric123@gmail.com',
+      password: '123',
+      is_designer: false,
+      is_admin: true
+    }),
+    knex('users').insert({
+      id: 11,
+      first_name: 'testerino',
+      last_name: 'Tehbest',
+      username: 'Stone Island',
+      email: 'testerino@gmail.com',
+      password: '123',
+      is_designer: false,
+      is_admin: true
+    }),
+    knex('users').insert({
+      id: 12,
+      first_name: 'tester',
+      last_name: 'Testing',
+      username: 'i love ugly',
+      email: 'test321@gmail.com',
       password: '123',
       is_designer: false,
       is_admin: true

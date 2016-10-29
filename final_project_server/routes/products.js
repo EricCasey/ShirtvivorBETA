@@ -9,6 +9,7 @@ module.exports = (knex) => {
     knex
       .select("*")
       .from("products")
+      .where("for_sale", true)
       .then((results) => {
         res.json(results);
     });
