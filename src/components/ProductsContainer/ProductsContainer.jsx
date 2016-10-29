@@ -22,9 +22,11 @@ import './products_container.css';
     }
 
   render() {
+
     return (
-      <div className="home-page-container">
-      
+
+      <div id="home-page-container" className="home-page-container">
+
         <div className="vote-message">
           <b>Vote on your favourite design to have it added to the store!</b>
         </div>
