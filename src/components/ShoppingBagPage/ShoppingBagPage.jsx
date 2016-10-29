@@ -11,21 +11,28 @@ class ShoppingBagPage extends Component {
         }
     };
 
-    // getSubtotal = (cart) => {
-    //     let total = 0;
-    //     this.props.cartList.forEach((product) => {
-    //         total += product.price_cents;
-    //     })
-    //     return total;
-    // }
-
     componentDidMount() {
         if (!localStorage.getItem('user')) {
             browserHistory.push('/login')
         }
     }
 
-
+    sendOrder = () => {
+      fetch('http://localhost:8080/api/order', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       },
+        body: JSON.stringify({
+          cartList: this.props.cartList,
+          total_price_cents: (((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100,
+          stripe_order_token: 'blah'
+        })
+      }).then((cart) => {
+        // console.log()
+      });
+    }
 
     render() {
         return (
@@ -61,7 +68,9 @@ class ShoppingBagPage extends Component {
                                             <p><b>{product.name}</b></p>
                                             <p>${ (product.price_cents / 100).toFixed(2) }</p>
                                         </div>
-                                        <div className="remove-item-button">
+                                        <div className="remove-item-button"
+                                        id={index}
+                                        onClick={this.props.removeItem}>
                                             REMOVE
                                         </div>
                                     </div>
@@ -92,7 +101,7 @@ class ShoppingBagPage extends Component {
                         </div>
 
 
-                        <div className="checkout-button">
+                        <div className="checkout-button" onClick={this.sendOrder}>
                           <StripeCheckout
                               getSubtotal={this.props.getSubtotal}
                               cartList={this.props.cartList}

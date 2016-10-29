@@ -2,7 +2,6 @@ import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import configs from '../../configs.json';
 
-
 export default class TakeMoney extends React.Component {
 
   onToken(token){
@@ -12,20 +11,6 @@ export default class TakeMoney extends React.Component {
     }).then(token => {
       // console.log(token + "blah")
       //put computer code here
-    });
-  }
-
-  sendOrder(){
-    fetch('http://localhost:8080/api/order', {
-      method: 'POST',
-      body: JSON.stringify({
-        cartList: this.props.cartList,
-        total_price_cents: this.props.getSubtotal(),
-        stripe_order_token: 'blah'
-      }
-      ),
-    }).then(cart => {
-      console.log(cart + "this is my cart after")
     });
   }
 
@@ -52,7 +37,7 @@ export default class TakeMoney extends React.Component {
         zipCode={false}
         // allowRememberMe
         token={this.onToken}
-        onClick={this.sendOrder()}
+        // onClick={this.sendOrder}
         // Note: `reconfigureOnUpdate` should be set to true IFF, for some reason
         // you are using multiple stripe keys
         reconfigureOnUpdate={false}

@@ -86,7 +86,6 @@ class NavBar extends Component {
     })
   }
 
-
   getSubtotal = (cart) => {
       let total = 0;
       this.state.cartList.forEach((product) => {
@@ -99,6 +98,16 @@ class NavBar extends Component {
     this.setState({
       ...this.state,
       cartList: []
+    })
+  }
+
+  removeItem = (elm) => {
+    let heavyCart = this.state.cartList
+    let indexOfItem = elm.target.id
+    heavyCart.splice(indexOfItem, 1)
+    this.setState({
+      ...this.state,
+      cartList: heavyCart
     })
   }
 
@@ -134,7 +143,8 @@ class NavBar extends Component {
             updateCart: this.updateCart,
             clearState: this.clearState,
             getSubtotal: this.getSubtotal,
-            token: this.state.token
+            token: this.state.token,
+            removeItem: this.removeItem
           })
         })}
       </div>
