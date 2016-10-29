@@ -8,7 +8,8 @@ class NavBar extends Component {
     super(props);
     this.state = {
       cartList: [],
-      imgFile: null
+      imgFile: null,
+      token: JSON.parse(localStorage.getItem('user'))
     }
   };
 
@@ -132,7 +133,8 @@ class NavBar extends Component {
             submitImage: this.submitImage,
             updateCart: this.updateCart,
             clearState: this.clearState,
-            getSubtotal: this.getSubtotal
+            getSubtotal: this.getSubtotal,
+            token: this.state.token
           })
         })}
       </div>

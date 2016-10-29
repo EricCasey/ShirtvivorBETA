@@ -10,7 +10,7 @@ import './products_container.css';
     componentDidMount() {
       var invocation = new XMLHttpRequest();
       if (invocation) {
-        fetch(`http://localhost:8080/api/notproducts`)
+        fetch(`http://localhost:8080/api/submissions`)
             .then( result => {
               var blah = result.json()
               blah.then( users => {
@@ -20,7 +20,6 @@ import './products_container.css';
             })
       };
     }
-
 
   render() {
     return (

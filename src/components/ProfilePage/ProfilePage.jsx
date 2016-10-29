@@ -7,7 +7,17 @@ class ProfilePage extends Component {
       super(props)
       this.state = {
         file: '',
-        imagePreviewUrl: ''
+        imagePreviewUrl: '',
+        submitFunction: function(data) {
+            fetch('http://localhost:8080/api/imagesub', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+               'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+          })
+          }
       }
   };
 
@@ -28,22 +38,7 @@ class ProfilePage extends Component {
   }
 
 
-
-
   _handleSubmit(e) {
-
-    function _imgSubmit(data) {
-      fetch('http://localhost:8080/api/newdesign', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-         'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    }
-
-
     e.preventDefault();
     this.props.submitImage(this.state.file)
   //  console.log('handle uploading-(props from navbar)', this.state.file);
@@ -65,8 +60,12 @@ class ProfilePage extends Component {
     }).then( json => {
       return json.data.link
     }).then( link => {
-      console.log(link)
-      _imgSubmit(link)
+      console.log(this.props.token.token)
+      let send = {
+        'image':link,
+        'token':this.props.token.token
+      };
+      this.state.submitFunction(send);
     })
 }
 

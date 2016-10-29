@@ -9,7 +9,6 @@ module.exports = (knex) => {
     knex
       .select("*")
       .from("products")
-      .where("featured", true)
       .then((results) => {
         res.json(results);
     });
