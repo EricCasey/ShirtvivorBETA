@@ -9,7 +9,16 @@ class NavBar extends Component {
     this.state = {
       cartList: [],
       imgFile: null,
-      token: JSON.parse(localStorage.getItem('user'))
+      token: JSON.parse(localStorage.getItem('user')),
+      sizes: [
+              'XS : 10x12',
+              'S : 12x16',
+              'M : 12x16',
+              'L : 12x16',
+              'XL : 12x16',
+              '2XL : 12x16',
+              '3XL : 12x16'
+            ]
     }
   };
 
@@ -137,6 +146,7 @@ class NavBar extends Component {
         </div>
         {React.Children.map(this.props.children, (child) => {
           return React.cloneElement(child, {
+            sizes: this.state.sizes,
             cartList: this.state.cartList,
             imgFile: this.state.imgFile,
             submitImage: this.submitImage,

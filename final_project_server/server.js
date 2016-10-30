@@ -27,6 +27,7 @@ const designerProductsRoutes = require("./routes/designerProducts");
 const orderRoutes = require("./routes/order");
 const submissionsRoutes = require("./routes/submissions");
 const imageSubRoutes = require("./routes/imagesubRoutes");
+const shirt1InfoRoutes = require("./routes/shirt1Info");
 // User authentication zone
 
 const session = require("express-session");
@@ -112,6 +113,7 @@ app.use('/api/submissions', submissionsRoutes(knex));
 
 // used on the designers page for switching designers
 app.get('/api/products/:id', designerProductsRoutes(knex));
+app.get('/api/shirt1info', shirt1InfoRoutes(knex))
 
 //used to login current user with credentials
 

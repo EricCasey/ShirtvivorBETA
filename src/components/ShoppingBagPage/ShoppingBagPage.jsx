@@ -8,8 +8,19 @@ class ShoppingBagPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+          defaultSize: 'M : 12x16'
         }
     };
+
+    // sizes = [
+    //                    {'XS': "10x12"},
+    //                   {'S': "12x16"},
+    //                     {'M': "12x16"},
+    //                     {'L': "12x16"},
+    //           {'XL': "12x16"},
+    //                     {'2XL': "12x16"},
+    //       {'3XL': "12x16"}
+    //     ];
 
     componentDidMount() {
         if (!localStorage.getItem('user')) {
@@ -34,6 +45,14 @@ class ShoppingBagPage extends Component {
       });
     }
 
+    setSize = (item) => {
+      let sizeIndex = item.target.id;
+      let size = item.target.className.match(/[^:]*/i)[0];
+      let sizeElmID = 'size' + sizeIndex
+      document.getElementById(sizeElmID).innerHTML = size;
+    }
+
+
     render() {
         return (
             <div className="shopping-bag-container">
@@ -51,6 +70,8 @@ class ShoppingBagPage extends Component {
                     <div className="shopping-bag-items-container">
                         <div className="shopping-bag-items">
                             {this.props.cartList.map((product, index) => {
+                                let sizeID = 'size' + index;
+                                let lineItemID = index;
                                 return (
                                     <div className="cart-item" key={index}>
                                         <div className="cart-item-images">
@@ -63,6 +84,21 @@ class ShoppingBagPage extends Component {
                                                 src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'
                                                 alt={ product.name }
                                             />
+                                            {/* <p>{this.props.cartList.size}</p> */}
+                                        </div>
+                                        <div className="dropdown">
+                                          <button className="dropbtn" id={sizeID}>Sizes</button>
+                                          <div className="dropdown-content">
+                                            {this.props.sizes.map((size, sizeIndex) => {
+                                              return (
+                                                <a href="#"
+                                                className={size}
+                                                key={sizeIndex}
+                                                id={lineItemID}
+                                                onClick={this.setSize}>{size}</a>
+                                              )
+                                            })}
+                                          </div>
                                         </div>
                                         <div className="cart-item-info">
                                             <p><b>{product.name}</b></p>
