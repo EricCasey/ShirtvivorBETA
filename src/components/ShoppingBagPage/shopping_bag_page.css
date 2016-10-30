@@ -4,20 +4,17 @@
   flex-direction: column;
 }
 
-
 .shopping-bag-header {
   display: flex;
   width: 100%;
   margin-top: 45px;
   margin: 75px 0 0 0;
   border-bottom: solid #C8C9C9 1px;
-
 }
-
 .shopping-bag-header-content {
   display:flex;
   align-items: center;
-  margin-left: 45px;
+  margin-left: 30px;
 }
 
 .shopping-bag-icon {
@@ -37,7 +34,7 @@
 
 .shopping-bag-items-container {
   display: flex;
-  width: 50%;
+  width: 56%;
   margin: 30px 0;
 }
 
@@ -82,7 +79,7 @@
 .cart-item-info {
   display: flex;
   flex-direction: column;
-  margin-left: 80px;
+  margin-left: 40px;
   font-size: 14px;
 }
 
@@ -101,7 +98,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-left: 80px;
+  margin-left: 40px;
   border: none;
 }
 
@@ -157,12 +154,61 @@
   border: none;
 }
 
-
-
 .checkout-card p{
   margin: 5px;
 }
 
 .checkout-button:hover {
   cursor: pointer;
+}
+
+/*.sizes {
+  border: 1px solid black;
+  width: 120px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}*/
+
+.dropbtn {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 10px;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: black;
 }
