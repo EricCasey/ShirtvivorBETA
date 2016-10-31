@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+    import React, {Component} from 'react';
 import {browserHistory} from 'react-router';
 import './shopping_bag_page.css';
 import '../../../public/font-awesome/css/font-awesome.css';
@@ -40,9 +40,9 @@ class ShoppingBagPage extends Component {
           total_price_cents: (((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100,
           stripe_order_token: 'blah'
         })
-      }).then((cart) => {
-        // console.log()
-      });
+      }).then(
+        this.props.clearState()
+      );
     }
 
     setSize = (item) => {

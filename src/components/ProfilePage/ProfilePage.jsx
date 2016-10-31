@@ -40,13 +40,19 @@ class ProfilePage extends Component {
     })
   }
 
+  clearProfileState = () => {
+    this.setState({
+      ...this.state,
+        file: "",
+        imagePreviewUrl: "",
+        productName: "",
+        productDescription: ""
+    })
+  }
 
   _handleSubmit(e) {
     e.preventDefault();
     this.props.submitImage(this.state.file)
-  //  console.log('handle uploading-(props from navbar)', this.state.file);
-    // let Base64img = document.getElementById('profileImg').src
-    // let upload = Base64img.replace("data:image/jpeg;base64,","")
 
     const body_data = new FormData({
       type: 'file'
@@ -70,7 +76,9 @@ class ProfilePage extends Component {
         'token':this.props.token.token
       };
       this.submitFunction(send);
-    })
+    }).then(
+      this.clearProfileState()
+    )
   }
 
   handleInputChange = (value, name) => {
@@ -95,6 +103,8 @@ class ProfilePage extends Component {
     }
     reader.readAsDataURL(file)
   }
+
+
 
   render() {
 

@@ -24,6 +24,7 @@ module.exports = (knex) => {
         .where("for_sale", false)
         .orderBy('votes', 'desc')
         .then((results) => {
+          console.log(results)
           res.json(results);
         });
     });
