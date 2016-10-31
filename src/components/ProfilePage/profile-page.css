@@ -6,16 +6,24 @@
 .current-user-products {
   display: flex;
   border-right: 1px solid #CCC;
-  width: 20%;
+  width: 23%;
   height: 67vh;
   margin-top: 75px;
-  margin-left: 45px;
+  margin-left: 15px;
+  /*margin-right: 10px;*/
   flex-direction: column;
 }
 
 .profile-buttons {
   display: flex;
 }
+
+/*div#side-nav {
+  color: blue;
+  background: red;
+}*/
+
+
 
 .profile-designs-button {
   background-color: #000000;
@@ -40,7 +48,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-right: 45px;
+  margin-right: 25px;
 }
 
 .profile-designs-button:hover {
@@ -144,4 +152,16 @@
   cursor: pointer;
   outline: none;
   height: 38px;
+}
+
+div#side-container {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-right: 10px;
+  overflow: scroll;
+}
+.product-item {
+  margin-left: 72px;
 }
