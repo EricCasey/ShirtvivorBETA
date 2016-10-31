@@ -28,7 +28,9 @@ const orderRoutes = require("./routes/order");
 const submissionsRoutes = require("./routes/submissions");
 const imageSubRoutes = require("./routes/imagesub");
 const shirt1InfoRoutes = require("./routes/shirt1Info");
-const addVoteRoutes = require("./routes/addVote")
+const addVoteRoutes = require("./routes/addVote");
+const userInfoRoutes = require("./routes/userInfo")
+const ordersListRoutes = require("./routes/orders")
 // User authentication zone
 
 const session = require("express-session");
@@ -100,6 +102,7 @@ app.post("/api/logout", loginRoutes(knex));
 app.post("/api/order", orderRoutes(knex));
 app.post("/api/imagesub", imageSubRoutes(knex));
 app.post("/api/add-vote/:productId", addVoteRoutes(knex));
+
 // products endpoint
 app.use("/api/products", productsRoutes(knex));
 
@@ -115,7 +118,9 @@ app.use('/api/submissions', submissionsRoutes(knex));
 
 // used on the designers page for switching designers
 app.get('/api/products/:id', designerProductsRoutes(knex));
-app.get('/api/shirt1info', shirt1InfoRoutes(knex))
+app.get('/api/shirt1info', shirt1InfoRoutes(knex));
+app.get('/api/userinfo/:user', userInfoRoutes(knex));
+app.get('/api/orders/:user', ordersListRoutes(knex));
 
 //used to login current user with credentials
 

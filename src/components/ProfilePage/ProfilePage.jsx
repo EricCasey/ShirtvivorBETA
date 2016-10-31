@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './profile-page.css';
+import DesignsBar from '../DesignsBar/DesignsBar.jsx';
+import OrdersBar from '../OrderBar/OrderBar.jsx';
 
 class ProfilePage extends Component {
 
@@ -9,7 +11,8 @@ class ProfilePage extends Component {
         file: "",
         imagePreviewUrl: "",
         productName: "",
-        productDescription: ""
+        productDescription: "",
+        activeSidebar: "designs"
       }
   };
 
@@ -96,6 +99,14 @@ class ProfilePage extends Component {
     reader.readAsDataURL(file)
   }
 
+  getDesigns = () => {
+    this.setState({activeSidebar: 'designs'})
+  }
+
+  getOrders = () => {
+    this.setState({activeSidebar: 'orders'})
+  }
+
   render() {
 
     let {imagePreviewUrl} = this.state;
@@ -109,13 +120,28 @@ class ProfilePage extends Component {
     return (
       <div className="profile-page-container">
         <div className="current-user-products">
-          <div className="profile-buttons">
-            <div className="profile-designs-button">
+          <div className="profile-buttons" id="side-nav">
+            <div
+            className="profile-designs-button"
+            onClick={this.getDesigns}>
               YOUR DESIGNS
             </div>
-            <div className="profile-orders-button">
+            <div
+            className="profile-orders-button"
+            onClick={this.getOrders}>
               YOUR ORDERS
             </div>
+          </div>
+          <div id="side-container">
+          {this.state.activeSidebar === 'designs' ? (
+            <DesignsBar
+            token={this.props.token.token}
+            />
+          ) : this.state.activeSidebar === 'orders' ? (
+            <OrdersBar
+            token={this.props.token.token} />
+          ) : null}
+
           </div>
           <div className="user-products-items">
           </div>
@@ -157,7 +183,6 @@ class ProfilePage extends Component {
           </div>
         </div>
       </div>
-
     )
   }
 }
