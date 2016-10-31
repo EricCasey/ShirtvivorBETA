@@ -9,17 +9,7 @@ class ProfilePage extends Component {
         file: "",
         imagePreviewUrl: "",
         productName: "",
-        productDescription: "",
-        submitFunction: function(data) {
-            fetch('http://localhost:8080/api/imagesub', {
-              method: 'POST',
-              headers: {
-                'Accept': 'application/json',
-               'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data)
-          })
-          }
+        productDescription: ""
       }
   };
 
@@ -37,6 +27,17 @@ class ProfilePage extends Component {
       }
       reader.readAsDataURL(file)
     }
+  }
+
+   submitFunction(data) {
+    fetch('http://localhost:8080/api/imagesub', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
   }
 
 
@@ -62,14 +63,22 @@ class ProfilePage extends Component {
     }).then( json => {
       return json.data.link
     }).then( link => {
-      console.log(this.props.token.token)
       let send = {
         'image':link,
+        'productName': this.state.productName,
+        'productDescription': this.state.productDescription,
         'token':this.props.token.token
       };
-      this.state.submitFunction(send);
+      this.submitFunction(send);
     })
-}
+  }
+
+  handleInputChange = (value, name) => {
+    this.setState({
+      ...this.state,
+      [name]: value
+    })
+  }
 
 
   _handleImageChange(e) {
@@ -118,9 +127,19 @@ class ProfilePage extends Component {
             </div>
             <div className="user-image-form-values">
               <label>Design name</label>
-              <input/>
+              <input
+                value={ this.state.productName }
+                type={ "text" }
+                name={ "productName" }
+                onChange={(e) => {this.handleInputChange(e.target.value, e.target.name)}}
+              />
               <label>Short description (optional)</label>
-              <input/>
+              <input
+                value={ this.state.productDescription }
+                type={ "text" }
+                name={ "productDescription" }
+                onChange={(e) => {this.handleInputChange(e.target.value, e.target.name)}}
+              />
             </div>
           </div>
           <div className="user-image-uploader">

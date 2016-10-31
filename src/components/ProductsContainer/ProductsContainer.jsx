@@ -21,6 +21,25 @@ import './products_container.css';
       };
     }
 
+    handleVoteClick = (product) => {
+      fetch(`http://localhost:8080/api/add-vote/${product.id}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }).then( result => {
+          var results = result.json()
+          results.then( products => {
+            this.setState({ products: products });
+            this.forceUpdate()
+          });
+      })
+    }
+
+
+
+
   render() {
 
     return (
@@ -33,18 +52,18 @@ import './products_container.css';
 
         <div className="productList">
           {
-            this.state.products.map( (products, index) => {
+            this.state.products.map( (product, index) => {
               return (
                 <div className="product-item" key={index}>
-                  <p className="designer-id"><b>{ products.name }</b></p>
+                  <p className="designer-id"><b>{ product.name }</b></p>
                   <div className="shirt-container">
-                      <img src={ products.image }
-                      alt={ products.name }
+                      <img src={ product.image }
+                      alt={ product.name }
                       className="ink" />
-                    <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={products.name}/>
+                    <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={product.name}/>
                   </div>
-                  <p>Votes: { products.votes }</p>
-                  <div className="vote-button">VOTE</div>
+                  <p>Votes: { product.votes }</p>
+                  <div className="vote-button" onClick={ this.handleVoteClick.bind(this, product) }>VOTE</div>
                 </div>
               )
             })

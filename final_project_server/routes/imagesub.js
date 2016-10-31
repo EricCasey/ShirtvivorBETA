@@ -13,6 +13,9 @@ router.use(bodyParser.json())
 module.exports = (knex) => {
 
   router.post("/api/imagesub", (req, res) => {
+    console.log(req.body)
+    let productName = req.body.productName;
+    let productDescription = req.body.productName;
     let imgurURL = req.body.image;
     let token = req.body.token;
     let currUser = null;
@@ -28,14 +31,14 @@ module.exports = (knex) => {
         }
       })
       .then((userinfo) => {
+        console.log(userinfo)
         knex('products')
-          // .returning('*')
-          .where('user_id', userinfo)
           .insert({
+            user_id: userinfo,
             image: imgurURL,
-            name: newProduct.name,
+            name: productName,
             price_cents: 3999,
-            description: newProduct.description,
+            description: productDescription,
             featured: false,
             votes: 0,
             for_sale: false
