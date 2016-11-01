@@ -8,8 +8,8 @@ exports.seed = function(knex, Promise) {
       email: 'alicebaxter@gmail.com',
       password: '123',
       is_designer: true,
-      is_admin: true
-
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 2,
@@ -20,7 +20,8 @@ exports.seed = function(knex, Promise) {
       password: '123',
       is_designer: true,
       is_admin: true,
-      image_submission: 'http://i.imgur.com/HpStImm.jpg'
+      image_submission: 'http://i.imgur.com/HpStImm.jpg',
+      user_votes: 3
     }),
     knex('users').insert({
       id: 3,
@@ -30,7 +31,8 @@ exports.seed = function(knex, Promise) {
       email: 'adamr@gmail.com',
       password: '123',
       is_designer: true,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 4,
@@ -41,7 +43,8 @@ exports.seed = function(knex, Promise) {
       password: '123',
       is_designer: true,
       is_admin: true,
-      image_submission: 'http://i.imgur.com/HpStImm.jpg'
+      image_submission: 'http://i.imgur.com/HpStImm.jpg',
+      user_votes: 3
     }),
     knex('users').insert({
       id: 5,
@@ -51,7 +54,8 @@ exports.seed = function(knex, Promise) {
       email: 'erichbest@gmail.com',
       password: '123',
       is_designer: true,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 6,
@@ -61,7 +65,8 @@ exports.seed = function(knex, Promise) {
       email: 'eriasdfst@gmail.com',
       password: '123',
       is_designer: true,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 7,
@@ -71,7 +76,8 @@ exports.seed = function(knex, Promise) {
       email: 'erictehbest@gmail.com',
       password: '123',
       is_designer: false,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 8,
@@ -81,7 +87,8 @@ exports.seed = function(knex, Promise) {
       email: 'ericts@gmail.com',
       password: '123',
       is_designer: false,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 9,
@@ -91,7 +98,8 @@ exports.seed = function(knex, Promise) {
       email: 'eric321@gmail.com',
       password: '123',
       is_designer: false,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 10,
@@ -101,7 +109,8 @@ exports.seed = function(knex, Promise) {
       email: 'eric123@gmail.com',
       password: '123',
       is_designer: false,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 11,
@@ -111,7 +120,8 @@ exports.seed = function(knex, Promise) {
       email: 'testerino@gmail.com',
       password: '123',
       is_designer: false,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     }),
     knex('users').insert({
       id: 12,
@@ -121,7 +131,8 @@ exports.seed = function(knex, Promise) {
       email: 'test321@gmail.com',
       password: '123',
       is_designer: false,
-      is_admin: true
+      is_admin: true,
+      user_votes: 3
     })
   ]);
 };
