@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './order-bar.css';
 
 class DesignersSideBar extends Component {
     constructor(props) {
@@ -48,9 +49,9 @@ class DesignersSideBar extends Component {
       }
       if(!this.state.orders[0] || undefined) {
         return (
-          <div>
-          <p>no orders yet</p>
-          <a href="/designers"><p>shop</p></a>
+          <div className="no-orders-yet">
+            <p>No orders yet.</p>
+            <a href="/designers" className="shop-button"><p>SHOP?</p></a>
           </div>
         )
       } else {
@@ -59,8 +60,8 @@ class DesignersSideBar extends Component {
           <div>
               {this.state.orders.map((order, index) => {
                   return (
-                      <div className="product-item" style={orderStyle} key={index}>
-                        <p className="designer-id">OrderID: { order.id } | total: ${( order.total_price_cents/100) }</p>
+                      <div className="order-side-bar-item" style={orderStyle} key={index}>
+                        <p className="order-side-bar-info"><b>OrderID:</b> { order.id } | <b>Total:</b> ${( order.total_price_cents/100) }</p>
                         {/* <p className="designer-id">Status: Delivered 00/00/00</p> */}
                       </div>
                   )

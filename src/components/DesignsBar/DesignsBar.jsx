@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './designers-bar.css';
 
 class DesignersSideBar extends Component {
     constructor(props) {
@@ -46,14 +47,14 @@ class DesignersSideBar extends Component {
       }
       if(!this.state.designs) {
         return (
-          <div>no designs yet</div>
+          <div className="no-designs-side-bar">no designs yet</div>
         )
       } else {
         return (
-          <div>
+          <div className="user-designs-side-bar-container">
               {this.state.designs.map((design, index) => {
                   return (
-                      <div className="product-item" key={index}>
+                      <div className="design-side-bar-item" key={index}>
                         <p className="designer-id" style={designStyle}><b>{ design.name }</b></p>
                         <div className="shirt-container">
                             <img src={ design.image }

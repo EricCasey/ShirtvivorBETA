@@ -41,8 +41,8 @@ module.exports = (knex) => {
             .andWhere('for_sale', false)
             .update({
                 votes: 0
-              })
-            )
+            })
+          )
         }
       }).then((results) => {
         knex
