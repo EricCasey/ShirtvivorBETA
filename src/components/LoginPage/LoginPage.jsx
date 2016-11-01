@@ -34,9 +34,11 @@ class LoginPage extends Component {
         credentials
       )
     }).then(response => {
+      console.log(response)
       return response.json();
     }).then( json => {
-      this.setLocalStorage(json[0]);
+      this.setLocalStorage(json.token);
+      this.props.setUser(json.user)
       browserHistory.push(`/`);
       // window.user_token = json.token
     })

@@ -8,6 +8,7 @@ class NavBar extends Component {
     super(props);
     this.state = {
       cartList: [],
+      currUser: null,
       token: JSON.parse(localStorage.getItem('user')),
       sizes: [
               'XS : 10x12',
@@ -25,6 +26,14 @@ class NavBar extends Component {
     if (!localStorage.getItem('user')) {
       browserHistory.push('/login')
     }
+    fetch(`http://localhost:8080/api/getcurrentuser`, {
+      method: 'GET',
+      headers: {
+        'token': this.state.token,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
   handleLogout = () => {
@@ -33,7 +42,7 @@ class NavBar extends Component {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-       'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(
         token
@@ -71,7 +80,7 @@ class NavBar extends Component {
       return (
         <Link to="/profile">
           <div className="profile-button">
-            PROFILE
+            { this.state.currUser && this.state.currUser.username }
           </div>
         </Link>
         )
@@ -84,6 +93,13 @@ class NavBar extends Component {
     this.setState({
       ...this.state,
       cartList: cartCopy
+    })
+  }
+
+  setUser = (userinfo) => {
+    this.setState({
+      ...this.state,
+      currUser: userinfo
     })
   }
 
@@ -144,7 +160,9 @@ class NavBar extends Component {
             clearState: this.clearState,
             getSubtotal: this.getSubtotal,
             token: this.state.token,
-            removeItem: this.removeItem
+            removeItem: this.removeItem,
+            setUser: this.setUser,
+            currUser: this.state.currUser
           })
         })}
       </div>

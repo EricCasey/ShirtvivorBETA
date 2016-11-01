@@ -15,11 +15,6 @@ module.exports = (knex) => {
     var password = req.body.loginPassword;
     var currUser = null;
     var newToken = null;
-
-    console.log(email)
-    console.log(password)
-    console.log(req.body)
-
     knex
       .select("*")
       .from("users")
@@ -35,15 +30,16 @@ module.exports = (knex) => {
             .then((hasSession) => {
               if (!hasSession[0]) {
                 newToken = chance.guid();
-                console.log(newToken)
                 knex('sessions')
                 .returning('token')
                 .insert({user_id: currUser.id, token: newToken})
                 .then((results)=> {
                   // res.cookie("token", newToken)
-                  res.json(results);
-                  console.log(results);
-
+                  let resultsMain = {
+                    token: newToken,
+                    user: currUser
+                  }
+                  res.json(resultsMain);
                 });
               }
             })
@@ -54,7 +50,6 @@ module.exports = (knex) => {
 
   router.post("/api/logout", (req, res) => {
     var token = req.body.token;
-    console.log(token);
     var currUser = null;
 
     knex
@@ -68,7 +63,6 @@ module.exports = (knex) => {
             .del()
             .then((results) => {
               res.json(results);
-              console.log(results);
             })
         }
       })

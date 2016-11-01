@@ -31,6 +31,7 @@ const shirt1InfoRoutes = require("./routes/shirt1Info");
 const addVoteRoutes = require("./routes/addVote");
 const userInfoRoutes = require("./routes/userInfo")
 const ordersListRoutes = require("./routes/orders")
+const getCurrentUserRoutes = require("./routes/getcurrentuser")
 // User authentication zone
 
 const session = require("express-session");
@@ -122,8 +123,9 @@ app.get('/api/shirt1info', shirt1InfoRoutes(knex));
 app.get('/api/userinfo/:user', userInfoRoutes(knex));
 app.get('/api/orders/:user', ordersListRoutes(knex));
 
-//used to login current user with credentials
 
+//used to login current user with credentials
+app.get('api/getcurrentuser', getCurrentUserRoutes(knex));
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

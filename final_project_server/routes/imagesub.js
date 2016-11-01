@@ -13,7 +13,6 @@ router.use(bodyParser.json())
 module.exports = (knex) => {
 
   router.post("/api/imagesub", (req, res) => {
-    console.log(req.body)
     let productName = req.body.productName;
     let productDescription = req.body.productName;
     let imgurURL = req.body.image;
@@ -31,7 +30,6 @@ module.exports = (knex) => {
         }
       })
       .then((userinfo) => {
-        console.log(userinfo)
         knex('products')
           .insert({
             user_id: userinfo,
