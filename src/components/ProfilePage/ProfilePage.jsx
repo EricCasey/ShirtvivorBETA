@@ -21,7 +21,7 @@ class ProfilePage extends Component {
     let reader = new FileReader();
     if (this.props.imgFile) {
       let file = this.props.imgFile;
-      console.log(file.data)
+      // console.log(file.data)
       reader.onloadend = () => {
         this.setState({
           file: file,
