@@ -32,7 +32,7 @@ module.exports = (knex) => {
             return currUser.user_id
           }
         }).then((userinfo) => {
-          if (productName && imgurURL && token) {
+          if (productName && imgurURL) {
             knex('products')
               .insert({
                 user_id: userinfo,
