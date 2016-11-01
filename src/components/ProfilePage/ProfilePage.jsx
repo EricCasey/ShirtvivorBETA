@@ -18,12 +18,14 @@ class ProfilePage extends Component {
 
 
 
+
   submitImage = (image) => {
     this.setState({
       ...this.state,
       file: image
     })
   }
+
 
    submitFunction(data) {
     fetch('http://localhost:8080/api/imagesub', {

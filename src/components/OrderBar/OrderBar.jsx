@@ -26,7 +26,7 @@ class DesignersSideBar extends Component {
                   .then(result => {
                       let theirOrders = result.json()
                       theirOrders.then(orders => {
-                        console.log(orders)
+                        // console.log(orders)
                         this.setState({
                           ...this.state,
                           orders: orders
@@ -46,6 +46,15 @@ class DesignersSideBar extends Component {
         'width': '100%',
         'margin-left': '0px'
       }
+      if(!this.state.orders[0] || undefined) {
+        return (
+          <div>
+          <p>no orders yet</p>
+          <a href="/designers"><p>shop</p></a>
+          </div>
+        )
+      } else {
+        // console.log(this.state.orders)
         return (
           <div>
               {this.state.orders.map((order, index) => {
@@ -55,9 +64,11 @@ class DesignersSideBar extends Component {
                         {/* <p className="designer-id">Status: Delivered 00/00/00</p> */}
                       </div>
                   )
-              })}
+              })
+            }
           </div>
         )
+      }
     }
 }
 export default DesignersSideBar

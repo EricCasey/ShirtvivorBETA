@@ -16,32 +16,46 @@ module.exports = (knex) => {
 
     let cartList = req.body.cartList;
     let total = req.body.total_price_cents;
+    let token = req.body.token
+    let currUser = null;
     // console.log(cartList)
     // console.log(total)
 
     //create order in system upon "checkout" click
-    knex("orders")
-      .returning("*")
-      .insert({
-        user_id: 1,
-        total_price_cents: Math.floor(total),
-        stripe_order_token: 'stipeordertoken'
+    knex
+      .select("*")
+      .from("sessions")
+      .where("token", token)
+      .then((hasSession) => {
+        console.log(hasSession)
+        if (hasSession[0]) {
+          currUser = hasSession[0]
+          console.log(currUser);
+          return currUser.user_id
+        }
       })
-      .then((result) => {
-        // console.log(result)
-        cartList.map((cartItem, index) => {
-          knex("lineitems")
-            .insert({
-              order_id: result[0].id,
-              product_id: cartItem.id,
-              quantity: 1,
-              item_price_cents: Math.round(cartItem.price_cents),
-              total_price_cents: Math.round(cartItem.price_cents)
+      .then(currUser => {
+        knex("orders")
+          .returning("*")
+          .insert({
+            user_id: currUser,
+            total_price_cents: Math.floor(total),
+            stripe_order_token: 'stipeordertoken'
+          })
+          .then((result) => {
+            // console.log(result)
+            cartList.map((cartItem, index) => {
+              knex("lineitems")
+                .insert({
+                  order_id: result[0].id,
+                  product_id: cartItem.id,
+                  quantity: 1,
+                  item_price_cents: Math.round(cartItem.price_cents),
+                  total_price_cents: Math.round(cartItem.price_cents)
+                })
             })
-            .then((result) => {
-              // console.log(result)
-            })
-        })
+            res.json(result)
+          })
       })
   });
 

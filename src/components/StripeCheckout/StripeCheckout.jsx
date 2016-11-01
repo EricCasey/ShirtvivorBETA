@@ -4,15 +4,15 @@ import configs from '../../configs.json';
 
 export default class TakeMoney extends React.Component {
 
-  onToken(token){
-    fetch('http://localhost:8080/api/order', {
-      method: 'POST',
-      body: JSON.stringify(token),
-    }).then(token => {
-      // console.log(token + "blah")
-      //put computer code here
-    });
-  }
+  // onToken(token){
+  //   fetch('http://localhost:8080/api/order', {
+  //     method: 'POST',
+  //     body: JSON.stringify(token),
+  //   }).then(response => {
+  //     debugger
+  //     console.log(response)
+  //   });
+  // }
 
   render() {
     return (
@@ -36,14 +36,14 @@ export default class TakeMoney extends React.Component {
         // cause zipCheck to be pulled from billing address (set to shipping if none provided).
         zipCode={false}
         // allowRememberMe
-        token={this.onToken}
+        token={this.props.sendOrder}
         // onClick={this.sendOrder}
         // Note: `reconfigureOnUpdate` should be set to true IFF, for some reason
         // you are using multiple stripe keys
         reconfigureOnUpdate={false}
         // Note: you can change the event to `onTouchTap`, `onClick`, `onTouchStart`
         // useful if you're using React-Tap-Event-Plugin
-        triggerEvent="onTouchTap"
+        triggerEvent="onClick"
         >
         <div>
           CHECKOUT

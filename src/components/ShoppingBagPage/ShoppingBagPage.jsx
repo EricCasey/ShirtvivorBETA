@@ -36,14 +36,16 @@ class ShoppingBagPage extends Component {
          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          token: this.props.token.token,
           cartList: this.props.cartList,
           total_price_cents: (((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100,
           stripe_order_token: 'blah'
         })
       }).then(response => {
-        debugger
-        console.log(response)
-        // this.props.clearState()
+        if (response.status === 200)  {
+            this.props.clearState()
+        }
+        return response.json()
       });
     }
 
@@ -137,14 +139,12 @@ class ShoppingBagPage extends Component {
                                 <div>${ ((this.props.getSubtotal() / 100) + ((this.props.getSubtotal() / 100) * 0.13) + (this.props.cartList.length * 3.00)).toFixed(2) }</div>
                             </div>
                         </div>
-
-
-                        <div className="checkout-button" onClick={this.sendOrder}>
-                          <StripeCheckout
-                              getSubtotal={this.props.getSubtotal}
-                              cartList={this.props.cartList}
-                          />
-                        </div>
+                        <StripeCheckout
+                          className="checkout-button"
+                          sendOrder={this.sendOrder}
+                          getSubtotal={this.props.getSubtotal}
+                          cartList={this.props.cartList}
+                        />
                     </div>
                 </div>
 
