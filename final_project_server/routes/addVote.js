@@ -13,18 +13,33 @@ module.exports = (knex) => {
   router.post("/api/add-vote/:productId", (req, res) => {
 
     let productId = req.params.productId
+    // console.log(req.body)
+    let votes = req.body[0].votes
+    let currID = req.body[0].id
+    // console.log(req.body)
 
     knex('products')
       .where("id", productId)
       .increment('votes', 1)
       .then((results) => {
+        console.log(votes)
+        if (votes > 299) {
+
+          return (
+            knex('products')
+            .where('id', currID)
+            .update({
+              for_sale: true
+            })
+          )
+        }
+      }).then((results) => {
         knex
         .select("*")
         .from("products")
         .where("for_sale", false)
         .orderBy('votes', 'desc')
         .then((results) => {
-          console.log(results)
           res.json(results);
         });
     });

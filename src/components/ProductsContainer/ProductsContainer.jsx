@@ -31,7 +31,10 @@ import './products_container.css';
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(
+          this.state.products
+      )
       }).then( result => {
           var results = result.json()
           results.then( products => {
