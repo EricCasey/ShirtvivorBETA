@@ -34,6 +34,17 @@ module.exports = (knex) => {
           )
         }
       }).then((results) => {
+        if (votes > 299) {
+          return (
+            knex('products')
+            .where('votes', '<', 300)
+            .andWhere('for_sale', false)
+            .update({
+                votes: 0
+              })
+            )
+        }
+      }).then((results) => {
         knex
         .select("*")
         .from("products")
