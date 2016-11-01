@@ -7,7 +7,7 @@ module.exports = (knex) => {
 
 
 
-  router.get("/api", (req, res) => {
+  router.get("/", (req, res) => {
 
   console.log(req)
 
