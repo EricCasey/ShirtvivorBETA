@@ -34,15 +34,17 @@ class ShoppingBagPage extends Component {
         headers: {
           'Accept': 'application/json',
          'Content-Type': 'application/json'
-       },
+        },
         body: JSON.stringify({
           cartList: this.props.cartList,
           total_price_cents: (((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100,
           stripe_order_token: 'blah'
         })
-      }).then(
-        this.props.clearState()
-      );
+      }).then(response => {
+        debugger
+        console.log(response)
+        // this.props.clearState()
+      });
     }
 
     setSize = (item) => {

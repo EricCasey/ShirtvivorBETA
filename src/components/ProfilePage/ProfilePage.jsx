@@ -17,19 +17,12 @@ class ProfilePage extends Component {
   };
 
 
-  componentWillMount() {
-    let reader = new FileReader();
-    if (this.props.imgFile) {
-      let file = this.props.imgFile;
-      console.log(file.data)
-      reader.onloadend = () => {
-        this.setState({
-          file: file,
-          imagePreviewUrl: reader.result
-        });
-      }
-      reader.readAsDataURL(file)
-    }
+
+  submitImage = (image) => {
+    this.setState({
+      ...this.state,
+      file: image
+    })
   }
 
    submitFunction(data) {
@@ -55,7 +48,7 @@ class ProfilePage extends Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-    this.props.submitImage(this.state.file)
+    this.submitImage(this.state.file)
 
     const body_data = new FormData({
       type: 'file'
@@ -78,10 +71,21 @@ class ProfilePage extends Component {
         'productDescription': this.state.productDescription,
         'token':this.props.token.token
       };
-      this.submitFunction(send);
-    }).then(
-      this.clearProfileState()
-    )
+      fetch('http://localhost:8080/api/imagesub', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(send)
+      }).then(response => {
+        console.log(response)
+        if (response.status === 200)  {
+          this.clearProfileState()
+        }
+        return response.json()
+      })
+    })
   }
 
   handleInputChange = (value, name) => {
@@ -90,7 +94,6 @@ class ProfilePage extends Component {
       [name]: value
     })
   }
-
 
   _handleImageChange(e) {
     e.preventDefault();
@@ -107,7 +110,6 @@ class ProfilePage extends Component {
     reader.readAsDataURL(file)
   }
 
-
   getDesigns = () => {
     this.setState({activeSidebar: 'designs'})
   }
@@ -115,7 +117,6 @@ class ProfilePage extends Component {
   getOrders = () => {
     this.setState({activeSidebar: 'orders'})
   }
-
 
   render() {
 

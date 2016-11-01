@@ -44,6 +44,7 @@ module.exports = (knex) => {
             for_sale: false
           })
           .then((results) => {
+
             res.json(results)
           })
       })

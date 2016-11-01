@@ -8,7 +8,6 @@ class NavBar extends Component {
     super(props);
     this.state = {
       cartList: [],
-      imgFile: null,
       token: JSON.parse(localStorage.getItem('user')),
       sizes: [
               'XS : 10x12',
@@ -79,13 +78,6 @@ class NavBar extends Component {
     }
   }
 
-  submitImage = (image) => {
-    this.setState({
-      ...this.state,
-      imgFile: image
-    })
-  }
-
   updateCart = (item) => {
     let cartCopy = this.state.cartList.slice(0);
     cartCopy.push(item)
@@ -148,8 +140,6 @@ class NavBar extends Component {
           return React.cloneElement(child, {
             sizes: this.state.sizes,
             cartList: this.state.cartList,
-            imgFile: this.state.imgFile,
-            submitImage: this.submitImage,
             updateCart: this.updateCart,
             clearState: this.clearState,
             getSubtotal: this.getSubtotal,
