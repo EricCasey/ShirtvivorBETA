@@ -10,6 +10,9 @@ import './products_container.css';
       }
     };
 
+    getVotes() {
+      console.log(this.state.userVotes)
+    }
     componentDidMount() {
       var invocation = new XMLHttpRequest();
       if (invocation) {
@@ -84,7 +87,6 @@ import './products_container.css';
           }
         </div>
       </div>
-
     )
   }
 }

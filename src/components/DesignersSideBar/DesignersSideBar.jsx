@@ -43,7 +43,12 @@ class DesignersSideBar extends Component {
                     {this.state.designers.map((designer, index) => {
                         return (
                             <div key={index} className="designer-side-bar-item">
-                                <div className={designer.username} id={designer.id} onClick={this.handleDesignerClick}>{designer.username}</div>
+                                <div
+                                className={designer.username}
+                                id={designer.id}
+                                onClick={this.handleDesignerClick}>
+                                  {designer.username}
+                                </div>
                             </div>
                         )
                     })}

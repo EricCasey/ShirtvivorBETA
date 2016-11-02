@@ -18,7 +18,7 @@ class DesignersSideBar extends Component {
               var userinfo = result.json()
               return userinfo
             }).then(user => {
-              // console.log(user.user_id)
+              console.log(user.user_id)
               return user.user_id
             }).then(id => {
               let targetId = id;
@@ -33,7 +33,7 @@ class DesignersSideBar extends Component {
                           ...this.state,
                           designs: products
                         })
-                        return products[0].image
+                        return products[0]
                       });
                   })
               };

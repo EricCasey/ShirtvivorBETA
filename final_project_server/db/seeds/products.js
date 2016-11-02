@@ -3,7 +3,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 1,
       image: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Chess_edt45.svg',
-      name: 't-shirt one',
+      name: 'Elephanti',
       price_cents: 3999,
       description: 'omg this shirt is off the hook!',
       featured: false,
@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 2,
       image: 'https://upload.wikimedia.org/wikipedia/commons/4/43/4-elements-2016071843.svg',
-      name: 't-shirt two',
+      name: 'Compass Alchemy',
       price_cents: 3999,
       description: 'shirt of the year',
       featured: false,
@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 3,
       image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Weather-small-fog-night.svg',
-      name: 't-shirt three',
+      name: 'Moon Festival',
       price_cents: 3999,
       description: 'omg this shirt is off the chain!',
       featured: false,
@@ -34,7 +34,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 3,
       image: 'http://publicdomainvectors.org/tn_img/ryanlerch_Cormorants.png',
-      name: 't-shirt four',
+      name: 'Ostriches.af',
       price_cents: 3999,
       description: 'omg this shirt is off the asdfkh!',
       featured: false,
@@ -44,9 +44,9 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 1,
       image: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Octicons-gist-secret.svg',
-      name: 't-shirt five',
+      name: 'ISPY',
       price_cents: 3999,
-      description: 'omg tis shirt is off the chain!',
+      description: 'omg this shirt! tis off the chain!',
       featured: false,
       votes: 300,
       for_sale: true
@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 4,
       image: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Agent_Picol_icon.svg',
-      name: 't-shirt six',
+      name: 'EyeDOT',
       price_cents: 3999,
       description: 'shirt tingz',
       featured: false,
@@ -92,7 +92,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 5,
       image: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Copyleft.svg',
-      name: 't-shirt ten',
+      name: 'Copy-what?',
       price_cents: 3999,
       description: 'omg this shirt is lit',
       featured: false,
@@ -112,7 +112,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 7,
       image: 'http://publicdomainvectors.org/tn_img/cybergedeon_AL_throwing_a_stone.png',
-      name: 't-shirt eleven',
+      name: 'ThrowMan',
       price_cents: 3999,
       description: 'vape naysh',
       featured: false,
@@ -122,7 +122,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 8,
       image: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Skull_and_crossbones_vector.svg',
-      name: 't-shirt twelve',
+      name: 'Jolly Roger',
       price_cents: 3999,
       description: 'papa bless',
       featured: false,
@@ -132,7 +132,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 9,
       image: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Eyes_lumen_design_studio_01.svg',
-      name: 't-shirt thirteen',
+      name: 'Snake Eyes',
       price_cents: 3999,
       description: 'testing tingz',
       featured: false,
@@ -142,7 +142,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 10,
       image: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Dragon_chinois_a_ecailles.svg',
-      name: 't-shirt fourteen',
+      name: 'Mulan.af',
       price_cents: 3999,
       description: 'making shirts happen',
       featured: false,
@@ -152,7 +152,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 11,
       image: 'http://publicdomainvectors.org/tn_img/Monster4.png',
-      name: 't-shirt fifteen',
+      name: 'KidsDrawing',
       price_cents: 3999,
       description: 'testing tingzzz',
       featured: false,
@@ -162,7 +162,7 @@ exports.seed = function(knex, Promise) {
     knex('products').insert({
       user_id: 12,
       image: 'http://publicdomainvectors.org/tn_img/ossidiana-monster.png',
-      name: 't-shirt sixteen',
+      name: 'GrumpBeast',
       price_cents: 3999,
       description: 'testing tingzzzzzz',
       featured: false,

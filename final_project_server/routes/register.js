@@ -22,13 +22,13 @@ module.exports = (knex) => {
         password: newUser.password,
         is_designer: false,
         is_admin: false,
-        image_submission: "empty"
+        image_submission: "empty",
+        user_votes: 3
       })
       .then((results) => {
         res.json(results);
         console.log(results)
     });
-
   });
   return router;
 }

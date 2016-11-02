@@ -12,12 +12,9 @@ class ProfilePage extends Component {
         imagePreviewUrl: "",
         productName: "",
         productDescription: "",
-        activeSidebar: "designs"
+        activeSidebar: "orders"
       }
   };
-
-
-
 
   submitImage = (image) => {
     this.setState({
@@ -25,7 +22,6 @@ class ProfilePage extends Component {
       file: image
     })
   }
-
 
    submitFunction(data) {
     fetch('http://localhost:8080/api/imagesub', {
@@ -84,10 +80,12 @@ class ProfilePage extends Component {
         console.log(response)
         if (response.status === 200)  {
           this.clearProfileState()
+          this.setState({ activeSidebar: "designs" })
         }
         return response.json()
       })
     })
+
   }
 
   handleInputChange = (value, name) => {
