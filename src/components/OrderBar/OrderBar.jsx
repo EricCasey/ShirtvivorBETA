@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './order-bar.css';
+import { Link } from 'react-router';
 
 class DesignersSideBar extends Component {
     constructor(props) {
@@ -51,7 +52,9 @@ class DesignersSideBar extends Component {
         return (
           <div className="no-orders-yet">
             <p>No orders yet.</p>
-            <a href="/designers" className="shop-button"><p>SHOP?</p></a>
+            <Link to="/designers" className="shop-button">
+              <p>SHOP?</p>
+            </Link>
           </div>
         )
       } else {

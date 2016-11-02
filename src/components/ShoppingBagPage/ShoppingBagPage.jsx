@@ -51,6 +51,7 @@ class ShoppingBagPage extends Component {
     }
 
     setSize = (item) => {
+      item.preventDefault();
       let sizeIndex = item.target.id;
       let size = item.target.className.match(/[^:]*/i)[0];
       let sizeElmID = 'size' + sizeIndex
