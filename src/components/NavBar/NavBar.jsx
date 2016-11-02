@@ -11,28 +11,40 @@ class NavBar extends Component {
       currUser: null,
       token: JSON.parse(localStorage.getItem('user')),
       sizes: [
-              'XS : 10x12',
-              'S : 12x16',
-              'M : 12x16',
-              'L : 12x16',
-              'XL : 12x16',
-              '2XL : 12x16',
-              '3XL : 12x16'
-            ]
+        'XS : 10x12',
+        'S : 12x16',
+        'M : 12x16',
+        'L : 12x16',
+        'XL : 12x16',
+        '2XL : 12x16',
+        '3XL : 12x16'
+      ]
     }
   };
 
-  componentDidMount() {
+  componentWillMount() {
     if (!localStorage.getItem('user')) {
       browserHistory.push('/login')
     }
-    fetch(`http://localhost:8080/api/getcurrentuser`, {
-      method: 'GET',
+    let token = JSON.parse(localStorage.getItem('user'));
+    fetch(`http://localhost:8080/api/getCurrentUser`, {
+      method: 'POST',
       headers: {
-        'token': this.state.token,
         'Accept': 'application/json',
         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        token
+      )
+    }).then(response => {
+      if (response.status === 200) {
+        return response.json();
       }
+    }).then(json => {
+      this.setState({
+        ...this.state,
+        currUser: json[0]
+      })
     })
   }
 

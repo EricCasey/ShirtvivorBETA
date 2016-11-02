@@ -4,15 +4,6 @@ import configs from '../../configs.json';
 
 export default class TakeMoney extends React.Component {
 
-  // onToken(token){
-  //   fetch('http://localhost:8080/api/order', {
-  //     method: 'POST',
-  //     body: JSON.stringify(token),
-  //   }).then(response => {
-  //     debugger
-  //     console.log(response)
-  //   });
-  // }
 
   render() {
     return (

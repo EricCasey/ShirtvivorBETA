@@ -31,7 +31,7 @@ const shirt1InfoRoutes = require("./routes/shirt1Info");
 const addVoteRoutes = require("./routes/addVote");
 const userInfoRoutes = require("./routes/userInfo")
 const ordersListRoutes = require("./routes/orders")
-const getCurrentUserRoutes = require("./routes/getcurrentuser")
+const getCurrentUserRoutes = require("./routes/getCurrentUser")
 // User authentication zone
 
 const session = require("express-session");
@@ -104,6 +104,9 @@ app.post("/api/order", orderRoutes(knex));
 app.post("/api/imagesub", imageSubRoutes(knex));
 app.post("/api/add-vote/:productId", addVoteRoutes(knex));
 
+//used to login current user with credentials
+app.post('/api/getCurrentUser', getCurrentUserRoutes(knex));
+
 // products endpoint
 app.use("/api/products", productsRoutes(knex));
 
@@ -123,9 +126,6 @@ app.get('/api/shirt1info', shirt1InfoRoutes(knex));
 app.get('/api/userinfo/:user', userInfoRoutes(knex));
 app.get('/api/orders/:user', ordersListRoutes(knex));
 
-
-//used to login current user with credentials
-app.get('api/getcurrentuser', getCurrentUserRoutes(knex));
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
