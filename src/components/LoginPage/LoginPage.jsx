@@ -56,12 +56,25 @@ class LoginPage extends Component {
       },
       body: JSON.stringify(signupInfo)
     }).then(response => {
+      console.log(response)
+      if (response.status === 200)  {
+        this.clearLoginState()
+      }
       return response.json();
     })
-    .then( json => {
-      this.setLocalStorage(json[0]);
-      browserHistory.push(`/`);
-      // window.user_token = json.token
+  }
+
+  clearLoginState = () => {
+    this.setState({
+      ...this.state,
+        loginEmail: "",
+        loginPassword: "",
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
     })
   }
 
