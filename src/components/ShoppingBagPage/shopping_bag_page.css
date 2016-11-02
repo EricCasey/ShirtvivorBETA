@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 120px;
+  height: 140px;
   padding: 8px;
   margin: 1% 0% 1% 45px;
 }
@@ -64,12 +64,13 @@
 }
 
 .cart-item img {
-  width: 100px;
+  max-width: 90px;
+  width: 90px;
+  max-height: 120px;
   float: right;
 }
 .cart-item p {
-  font-size: 80%;
-  line-height: 10px;
+  font-size: 14px;
 }
 .operator {
  padding: 0px;
@@ -80,11 +81,15 @@
 .cart-item-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-left: 40px;
   font-size: 14px;
+  width: 110px;
 }
 
-.cart-item-info p{
+.cart-item-info p {
+
   padding: 0;
   margin: 5px 0 0 0;
 }
@@ -147,7 +152,7 @@
   color: #ffffff;
   font-size: 10px;
   height: 30px;
-  width: 65%;
+  width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,6 +178,13 @@
   margin-left: 5px;
 }*/
 
+.sizes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .dropbtn {
     background-color: black;
     color: white;
@@ -182,11 +194,15 @@
     cursor: pointer;
     margin-left: 15px;
     z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .dropdown-content {

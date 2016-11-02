@@ -45,7 +45,7 @@ export default class TakeMoney extends React.Component {
         // useful if you're using React-Tap-Event-Plugin
         triggerEvent="onClick"
         >
-        <div>
+        <div className="checkout-button">
           CHECKOUT
         </div>
       </StripeCheckout>

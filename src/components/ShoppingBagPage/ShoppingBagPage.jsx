@@ -29,24 +29,25 @@ class ShoppingBagPage extends Component {
     }
 
     sendOrder = () => {
-      fetch('http://localhost:8080/api/order', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-         'Content-Type': 'application/json'
+        fetch('http://localhost:8080/api/order', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          token: this.props.token.token,
-          cartList: this.props.cartList,
-          total_price_cents: (((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100,
-          stripe_order_token: 'blah'
+            body: JSON.stringify({
+            token: this.props.token.token,
+            cartList: this.props.cartList,
+            total_price_cents: (((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100,
+            stripe_order_token: 'blah'
         })
-      }).then(response => {
-        if (response.status === 200)  {
+        }).then(response => {
+            if (response.status === 200)  {
             this.props.clearState()
         }
         return response.json()
       });
+
     }
 
     setSize = (item) => {
@@ -90,19 +91,21 @@ class ShoppingBagPage extends Component {
                                             />
                                             {/* <p>{this.props.cartList.size}</p> */}
                                         </div>
-                                        <div className="dropdown">
-                                          <button className="dropbtn" id={sizeID}>Sizes</button>
-                                          <div className="dropdown-content">
-                                            {this.props.sizes.map((size, sizeIndex) => {
-                                              return (
-                                                <a href="#"
-                                                className={size}
-                                                key={sizeIndex}
-                                                id={lineItemID}
-                                                onClick={this.setSize}>{size}</a>
-                                              )
-                                            })}
-                                          </div>
+                                        <div className="sizes-container">
+                                            <div className="dropdown">
+                                              <button className="dropbtn" id={sizeID}>Sizes</button>
+                                              <div className="dropdown-content">
+                                                {this.props.sizes.map((size, sizeIndex) => {
+                                                  return (
+                                                    <a href="#"
+                                                    className={size}
+                                                    key={sizeIndex}
+                                                    id={lineItemID}
+                                                    onClick={this.setSize}>{size}</a>
+                                                  )
+                                                })}
+                                              </div>
+                                            </div>
                                         </div>
                                         <div className="cart-item-info">
                                             <p><b>{product.name}</b></p>
@@ -139,12 +142,15 @@ class ShoppingBagPage extends Component {
                                 <div>${ ((this.props.getSubtotal() / 100) + ((this.props.getSubtotal() / 100) * 0.13) + (this.props.cartList.length * 3.00)).toFixed(2) }</div>
                             </div>
                         </div>
-                        <StripeCheckout
-                          className="checkout-button"
-                          sendOrder={this.sendOrder}
-                          getSubtotal={this.props.getSubtotal}
-                          cartList={this.props.cartList}
-                        />
+                        { this.props.cartList.length > 0 &&
+                           <StripeCheckout
+                              className="checkout-button"
+                              sendOrder={this.sendOrder}
+                              getSubtotal={this.props.getSubtotal}
+                              cartList={this.props.cartList}
+                            />
+                        }
+
                     </div>
                 </div>
 
