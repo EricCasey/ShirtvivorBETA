@@ -10,7 +10,7 @@ class DesignersSideBar extends Component {
     };
 
     componentDidMount() {
-        let token = this.props.token
+        let token = this.props.token.token
         var invocation = new XMLHttpRequest();
         if (invocation) {
             fetch(`http://localhost:8080/api/userinfo/${token}`)
@@ -18,10 +18,11 @@ class DesignersSideBar extends Component {
               var userinfo = result.json()
               return userinfo
             }).then(user => {
-              console.log(user.user_id)
+              // console.log(user.user_id)
               return user.user_id
             }).then(id => {
               let targetId = id;
+              // console.log(targetId)
               let invocation = new XMLHttpRequest();
               if (invocation) {
                   fetch(`http://localhost:8080/api/products/${targetId}`)
@@ -33,7 +34,7 @@ class DesignersSideBar extends Component {
                           ...this.state,
                           designs: products
                         })
-                        return products[0]
+                        return products[0].image
                       });
                   })
               };

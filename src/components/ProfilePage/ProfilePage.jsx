@@ -146,11 +146,11 @@ class ProfilePage extends Component {
           <div id="side-container">
           {this.state.activeSidebar === 'designs' ? (
             <DesignsBar
-            token={this.props.token.token}
+            token={this.props.token}
             />
           ) : this.state.activeSidebar === 'orders' ? (
             <OrdersBar
-            token={this.props.token.token} />
+            token={this.props.token} />
           ) : null}
 
           </div>

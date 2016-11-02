@@ -146,7 +146,7 @@ exports.seed = function(knex, Promise) {
       price_cents: 3999,
       description: 'making shirts happen',
       featured: false,
-      votes: 0,
+      votes: 298,
       for_sale: false
     }),
     knex('products').insert({

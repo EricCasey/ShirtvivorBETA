@@ -8,7 +8,7 @@ module.exports = (knex) => {
   router.get("/api/userinfo/:user", (req, res) => {
       let currUser = null;
       let token = req.params.user
-      // console.log(token)
+      console.log(token)
       knex
         .select("*")
         .from("sessions")
