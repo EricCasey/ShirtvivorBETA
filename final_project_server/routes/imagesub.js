@@ -29,6 +29,8 @@ module.exports = (knex) => {
         .then((hasSession) => {
           if (hasSession[0]) {
             currUser = hasSession[0]
+            console.log("-----------")
+            console.log(currUser)
             return currUser.user_id
           }
         }).then((userinfo) => {

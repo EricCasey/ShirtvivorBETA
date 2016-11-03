@@ -10,9 +10,9 @@ export default class TakeMoney extends React.Component {
       <StripeCheckout
         name="SHIRTVIVOR"
         description="Delivery in X days"
-        image="https://static-s.aa-cdn.net/img/ios/371279677/1fbf8e2fbaf52b6caa1d1de481f8eeb9?v=1"
+        image="http://simpleicon.com/wp-content/uploads/lock-9.png"
         ComponentClass="div"
-        panelLabel="total: "
+        panelLabel="Total: "
         amount={(((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100}
         // {this.props.getSubtotal()}
         currency="USD"

@@ -34,7 +34,7 @@ class DesignersSideBar extends Component {
                           ...this.state,
                           designs: products
                         })
-                        return products[0].image
+                        return products[0]
                       });
                   })
               };
