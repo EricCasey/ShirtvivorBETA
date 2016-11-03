@@ -36,7 +36,7 @@ class ShoppingBagPage extends Component {
              'Content-Type': 'application/json'
         },
             body: JSON.stringify({
-            token: this.props.token.token,
+            token: JSON.parse(localStorage.getItem('user')).token,
             cartList: this.props.cartList,
             total_price_cents: (((this.props.getSubtotal()/100)+((this.props.getSubtotal()/100)*0.13)+(this.props.cartList.length*3.00)).toFixed(2))*100,
             stripe_order_token: 'blah'
