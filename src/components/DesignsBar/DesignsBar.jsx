@@ -10,7 +10,8 @@ class DesignersSideBar extends Component {
     };
 
     componentDidMount() {
-        let token = this.props.token.token
+      debugger
+        let token = JSON.parse(localStorage.getItem('user')).token
         var invocation = new XMLHttpRequest();
         if (invocation) {
             fetch(`http://localhost:8080/api/userinfo/${token}`)

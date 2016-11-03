@@ -11,7 +11,7 @@ class DesignersSideBar extends Component {
     };
 
     componentDidMount() {
-        let token = this.props.token.token
+        let token = JSON.parse(localStorage.getItem('user')).token
         console.log(token)
         var invocation = new XMLHttpRequest();
         if (invocation) {
