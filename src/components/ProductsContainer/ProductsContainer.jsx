@@ -61,10 +61,10 @@ import './products_container.css';
       <div className="home-page-container">
 
         <div className="vote-message">
-          <b>Vote on your favourite design to have it added to the store!
-            <p>Use your votes carefully, you're only allowed 3 per week.</p>
-            <p>Votes Left: {this.state.userVotes}</p>
-          </b>
+            <p><b>Vote on your favourite design to have it added to the store!</b></p>
+            <p><b>Use your votes carefully, you're only allowed 3 per week.</b></p>
+            <p><b>Votes Left: {this.state.userVotes}</b></p>
+            <p><b>At the end of each week, the design with the most votes is added to the store and the rest of the designs are reset to 0 votes.</b></p>
         </div>
 
         <div className="productList">

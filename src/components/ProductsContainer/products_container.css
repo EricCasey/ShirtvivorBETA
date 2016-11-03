@@ -6,11 +6,16 @@
 
 .vote-message {
   display: flex;
-  width: 23%;
+  width: 20%;
+  flex-direction: column;
   font-family: 'Istok Web', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   margin-left: 45px;
   margin-top: 75px;
+}
+
+.vote-message p {
+  text-overflow: auto;
 }
 
 .productList {
