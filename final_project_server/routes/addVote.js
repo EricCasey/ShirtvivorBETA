@@ -14,6 +14,7 @@ module.exports = (knex) => {
 
     let productId = req.params.productId
     // console.log(req.body)
+    let userID = req.body[0].user_id
     let votes = req.body[0].votes
     let currID = req.body[0].id
     // console.log(req.body)
@@ -34,6 +35,18 @@ module.exports = (knex) => {
           )
         }
       }).then((results) => {
+        if (votes > 299) {
+          return (
+            knex("users")
+            .where("id", userID)
+            .update({
+              is_designer: true
+            })
+          )
+        }
+      })
+
+      .then((results) => {
         if (votes > 299) {
           return (
             knex('products')

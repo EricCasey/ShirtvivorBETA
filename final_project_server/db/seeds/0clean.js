@@ -1,5 +1,6 @@
 exports.seed = function(knex, Promise) {
-  return knex('lineitems').del().then(function() {
+  return knex('lineitems').del()
+    .then(function() {
       return knex('orders').del()
     })
     .then(function() {
