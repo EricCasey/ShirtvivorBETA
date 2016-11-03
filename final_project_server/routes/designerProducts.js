@@ -10,7 +10,9 @@ module.exports = (knex) => {
     knex
       .select("*")
       .from("products")
+      .orderBy("name", "asc")
       .where("user_id", req.params.id)
+      .andWhere("for_sale", true)
       .then((results) => {
         res.json(results);
     });

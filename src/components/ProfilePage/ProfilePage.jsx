@@ -67,7 +67,7 @@ class ProfilePage extends Component {
         'image':link,
         'productName': this.state.productName,
         'productDescription': this.state.productDescription,
-        'token':this.props.token.token
+        'token': JSON.parse(localStorage.getItem('user')).token
       };
       fetch('http://localhost:8080/api/imagesub', {
         method: 'POST',

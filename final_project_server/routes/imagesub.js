@@ -15,7 +15,7 @@ module.exports = (knex) => {
   router.post("/api/imagesub", (req, res) => {
     console.log(req.body)
     let productName = req.body.productName;
-    let productDescription = req.body.productName;
+    let productDescription = req.body.productDescription;
     let imgurURL = req.body.image;
     let token = req.body.token;
     let currUser = null;

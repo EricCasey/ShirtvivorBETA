@@ -9,6 +9,7 @@ module.exports = (knex) => {
     knex
       .select("username", "id")
       .from("users")
+      .orderBy("username", "asc")
       .where("is_designer", true)
       .then((results) => {
         res.json(results);

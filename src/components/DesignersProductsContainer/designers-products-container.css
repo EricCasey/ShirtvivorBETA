@@ -55,6 +55,19 @@
 .ink {
   opacity: 0.7;
   position: absolute;
+  width: auto;
+  height: auto;
   max-width: 75px;
   max-height: 100px;
 }
+
+
+
+.ink img {
+  width: auto;
+  height: auto;
+  max-width: 75px;
+  max-height: 100px;
+}
+
+

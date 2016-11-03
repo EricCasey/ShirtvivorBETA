@@ -6,7 +6,7 @@
 
 .vote-message {
   display: flex;
-  width: 15%;
+  width: 23%;
   font-family: 'Istok Web', sans-serif;
   font-size: 18px;
   margin-left: 45px;
@@ -58,6 +58,8 @@
 .ink {
   opacity: 0.7;
   position: absolute;
+  width: auto;
+  height: auto;
   max-width: 75px;
   max-height: 100px;
 }

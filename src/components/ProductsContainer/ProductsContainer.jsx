@@ -74,9 +74,10 @@ import './products_container.css';
                 <div className="product-item" key={index}>
                   <p className="designer-id"><b>{ product.name }</b></p>
                   <div className="shirt-container">
+                    <div className="ink">
                       <img src={ product.image }
-                      alt={ product.name }
-                      className="ink" />
+                      alt={ product.name } />
+                    </div>
                     <img src='http://www.clker.com/cliparts/6/f/9/8/11971486291056358595DigitaLink_Blank_T-Shirt.svg.hi.png'  alt={ product.name }/>
                   </div>
                   <p>Votes: { product.votes }</p>
